@@ -2,11 +2,14 @@ import numpy as np
 from lightphe import LightPHE
 
 
-
-
 def calculate_slope(x, y, x_mean, y_mean):
-    numerator = sum((x[i] - x_mean) * (y[i] - y_mean) for i in range(len(x)))
-    denominator = sum((x[i] - x_mean) ** 2 for i in range(len(x)))
+    numerator = 0
+    denominator = 0
+
+    for i in range(len(x)):
+        numerator += (x[i] - x_mean) * (y[i] - y_mean)
+        denominator += (x[i] - x_mean) ** 2
+
     return numerator / denominator
 
 
