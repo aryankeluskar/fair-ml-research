@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 Using CKKS and PyTorch:
 
 ############# Data summary #############
-x_train has shape: torch.Size([780, 9])
+x_train has shape: torch.Size([780, 9])`
 y_train has shape: torch.Size([780, 1])
 x_test has shape: torch.Size([334, 9])
 y_test has shape: torch.Size([334, 1])
