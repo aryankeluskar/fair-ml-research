@@ -1,0 +1,118 @@
+Repetition 1:
+Accuracy: 0.7937389016151428
+TPR for protected group: 0.513070447496677
+FPR for protected group: 0.06275033377837116
+Equalized Odds for protected group: 8.176377982447047
+
+Confusion Matrix:
+[[2106  141]
+ [1099 1158]]Repetition 1:
+Plain Accuracy: 0.8106127977371216
+Encrypet Accuracy: 0.7817495559502664
+Difference between plain and encrypted accuracies: 0.028863251209259033
+TPR for protected group: 0.9432314410480349
+FPR for protected group: 0.3852755194218609
+Equalized Odds for protected group: 2.44819977781987
+
+Confusion Matrix:
+[[1361  853]
+ [ 130 2160]]Repetition 2:
+Plain Accuracy: 0.8026198744773865
+Encrypet Accuracy: 0.7955150976909414
+Difference between plain and encrypted accuracies: 0.007104754447937012
+TPR for protected group: 0.7736193518941122
+FPR for protected group: 0.1837440553393861
+Equalized Odds for protected group: 4.210309555131956
+
+Confusion Matrix:
+[[1888  425]
+ [ 496 1695]]Repetition 3:
+Plain Accuracy: 0.7979573607444763
+Encrypet Accuracy: 0.8003996447602132
+Difference between plain and encrypted accuracies: -0.002442300319671631
+TPR for protected group: 0.8830121021963245
+FPR for protected group: 0.28068631764188295
+Equalized Odds for protected group: 3.1459036180129236
+
+Confusion Matrix:
+[[1635  638]
+ [ 261 1970]]Repetition 4:
+Plain Accuracy: 0.8008437156677246
+Encrypet Accuracy: 0.8003996447602132
+Difference between plain and encrypted accuracies: 0.00044405460357666016
+TPR for protected group: 0.8764835164835165
+FPR for protected group: 0.2772543741588156
+Equalized Odds for protected group: 3.161297343433266
+
+Confusion Matrix:
+[[1611  618]
+ [ 281 1994]]Repetition 5:
+Plain Accuracy: 0.797069251537323
+Encrypet Accuracy: 0.7775310834813499
+Difference between plain and encrypted accuracies: 0.019538164138793945
+TPR for protected group: 0.9374726716222125
+FPR for protected group: 0.38746053225078936
+Equalized Odds for protected group: 2.4195307485290396
+
+Confusion Matrix:
+[[1358  859]
+ [ 143 2144]]Repetition 6:
+Plain Accuracy: 0.7981793880462646
+Encrypet Accuracy: 0.7855239786856127
+Difference between plain and encrypted accuracies: 0.012655436992645264
+TPR for protected group: 0.7372690401081569
+FPR for protected group: 0.16761487964989058
+Equalized Odds for protected group: 4.398589442942919
+
+Confusion Matrix:
+[[1902  383]
+ [ 583 1636]]Repetition 7:
+Plain Accuracy: 0.8077264428138733
+Encrypet Accuracy: 0.7606571936056838
+Difference between plain and encrypted accuracies: 0.047069251537323
+TPR for protected group: 0.957238307349666
+FPR for protected group: 0.434705621956618
+Equalized Odds for protected group: 2.202038020675046
+
+Confusion Matrix:
+[[1277  982]
+ [  96 2149]]Repetition 8:
+Plain Accuracy: 0.8046181201934814
+Encrypet Accuracy: 0.8052841918294849
+Difference between plain and encrypted accuracies: -0.0006660819053649902
+TPR for protected group: 0.847922192749779
+FPR for protected group: 0.23773416592328278
+Equalized Odds for protected group: 3.566682094080684
+
+Confusion Matrix:
+[[1709  533]
+ [ 344 1918]]Repetition 9:
+Plain Accuracy: 0.807504415512085
+Encrypet Accuracy: 0.7682060390763765
+Difference between plain and encrypted accuracies: 0.03929835557937622
+TPR for protected group: 0.6254997778764994
+FPR for protected group: 0.08921438082556592
+Equalized Odds for protected group: 7.011199002764943
+
+Confusion Matrix:
+[[2052  201]
+ [ 843 1408]]Repetition 10:
+Plain Accuracy: 0.7995115518569946
+Encrypet Accuracy: 0.775088809946714
+Difference between plain and encrypted accuracies: 0.024422764778137207
+TPR for protected group: 0.6872501110617504
+FPR for protected group: 0.13715046604527298
+Equalized Odds for protected group: 5.0109207126929585
+
+Confusion Matrix:
+[[1944  309]
+ [ 704 1547]]
+ 
+ 
+Average Metrics:
+Average Plain Accuracy: 0.8026643991470337
+Average Encrypted Accuracy: 0.7850355239786856
+Average Difference between plain and encrypted accuracies: 0.017628764733672142
+Average TPR for protected group: 0.8268998512390052
+Average FPR for protected group: 0.2580840313213365
+Average Equalized Odds for protected group: 3.7574670316083605
