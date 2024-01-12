@@ -1,0 +1,21 @@
+Repetition 1:
+Plain Accuracy: 0.8030639290809631
+Encrypet Accuracy: 0.7480017761989343
+Difference between plain and encrypted accuracies: 0.055062174797058105
+TPR for protected group: 0.9699738903394256
+FPR for protected group: 0.48322756119673616
+Equalized Odds for protected group: 2.007281803085153
+
+Confusion Matrix:
+[[1140 1066]
+ [  69 2229]]Repetition 2:
+Plain Accuracy: 0.8015097975730896
+Encrypet Accuracy: 0.7730905861456483
+Difference between plain and encrypted accuracies: 0.028419196605682373
+TPR for protected group: 0.6839130434782609
+FPR for protected group: 0.1338475499092559
+Equalized Odds for protected group: 5.109641857037585
+
+Confusion Matrix:
+[[1909  295]
+ [ 727 1573]]
