@@ -1,12 +1,28 @@
+    # Load all necessary packages
 import sys
 
+from sklearn.metrics import confusion_matrix
 sys.path.insert(1, "../")  
-from sklearn.metrics import confusion_matrix, f1_score
-import torch
-import pandas as pd
-import random
+
 import numpy as np
 np.random.seed(0)
+
+from aif360.datasets import GermanDataset
+from aif360.metrics import BinaryLabelDatasetMetric
+from aif360.algorithms.preprocessing import Reweighing
+
+from IPython.display import Markdown, display
+
+import torch
+import tenseal as ts
+import pandas as pd
+import random
+from time import time
+
+# those are optional and are not necessary for training
+import numpy as np
+from aif360.datasets import BinaryLabelDataset
+import matplotlib.pyplot as plt
 
 # Initialize lists to store metrics over repetitions
 accuracy_list = []
@@ -14,11 +30,8 @@ tpr_list = []
 fpr_list = []
 equalized_odds_list = []
 
-# Define the number of repetitions for the experiment here
-ITERATIONS = 10
+for repetition in range(150):
 
-for repetition in range(ITERATIONS):
-    # separate train and test data, alloting 30% of the data for testing
     def split_train_test(x, y, test_ratio=0.3):
         idxs = [i for i in range(len(x))]
         random.shuffle(idxs)
@@ -27,27 +40,34 @@ for repetition in range(ITERATIONS):
         test_idxs, train_idxs = idxs[:delim], idxs[delim:]
         return x[train_idxs], y[train_idxs], x[test_idxs], y[test_idxs]
 
-    # read adult income data, standardize it, and split into train and test sets
-    def adult_income_data():
-        data = pd.read_csv("./adultPreprocessed.csv")
+
+    def german_credit_data():
+        data = pd.read_csv("./germanPreprocessed.csv")
         # drop rows with missing values
         data = data.dropna()
         # balance data
-        grouped = data.groupby('income')
+        grouped = data.groupby('Creditability')
         data = grouped.apply(lambda x: x.sample(grouped.size().min(), random_state=73).reset_index(drop=True))
         # extract labels
-        y = torch.tensor(data["income"].values).float().unsqueeze(1)
-        data = data.drop("income", axis='columns')
+        y = torch.tensor(data["Creditability"].values).float().unsqueeze(1)
+        data = data.drop("Creditability", axis='columns')
         # standardize data
         data = (data - data.mean()) / data.std()
         x = torch.tensor(data.values).float()
-        # print(data['female'])
-        return split_train_test(x, y), data
-        # after standardization, 'female' is -0.600922 for males and 1.663999 for females
+        return split_train_test(x, y)
 
-    dataset_read_output = adult_income_data()
-    x_train, y_train, x_test, y_test = dataset_read_output[0]
-    adult_data = dataset_read_output[1]
+    def random_data(m=1024, n=2):
+        # data separable by the line `y = x`
+        x_train = torch.randn(m, n)
+        x_test = torch.randn(m // 2, n)
+        y_train = (x_train[:, 0] >= x_train[:, 1]).float().unsqueeze(0).t()
+        y_test = (x_test[:, 0] >= x_test[:, 1]).float().unsqueeze(0).t()
+        return x_train, y_train, x_test, y_test
+
+
+    # You can use whatever data you want without modification to the tutorial
+    # x_train, y_train, x_test, y_test = random_data()
+    x_train, y_train, x_test, y_test = german_credit_data()
 
     print("############# Data summary #############")
     print(f"x_train has shape: {x_train.shape}")
@@ -55,6 +75,12 @@ for repetition in range(ITERATIONS):
     print(f"x_test has shape: {x_test.shape}")
     print(f"y_test has shape: {y_test.shape}")
     print("#######################################")
+
+
+    # ## Training a Logistic Regression Model
+    # 
+    # We will start by training a logistic regression model (without any encryption), which can be viewed as a single layer neural network with a single node. We will be using this model as a means of comparison against encrypted training and evaluation.
+
 
     class LR(torch.nn.Module):
 
@@ -75,7 +101,7 @@ for repetition in range(ITERATIONS):
     criterion = torch.nn.BCELoss()
 
 
-    # define the number of epochs for plain training
+    # define the number of epochs for both plain and encrypted training
     EPOCHS = 5
 
     def train(model, optim, criterion, x, y, epochs=EPOCHS):
@@ -91,6 +117,18 @@ for repetition in range(ITERATIONS):
             optim.step()
             print(f"Loss at epoch {e}: {loss.data}")
         return model
+    
+    # print model, optim, criterion, x_train, y_train with suitable headings
+    # print("############# Model #############")
+    # print(model)
+    # print("############# Optim #############")
+    # print(optim)
+    # print("############# Criterion #############")
+    # print(criterion)
+    # print("############# x_train #############")
+    # print(x_train)
+    # print("############# y_train #############")
+    # print(y_train)
 
     model = train(model, optim, criterion, x_train, y_train)
 
@@ -102,20 +140,16 @@ for repetition in range(ITERATIONS):
     plain_accuracy = accuracy(model, x_test, y_test)
     print(f"Accuracy on plain test_set: {plain_accuracy}")
 
-    # Old Version which used AIF360
-    # privileged_groups = [{'female': 0}]
-    # unprivileged_groups = [{'female': 1}]
-
+    from sklearn.metrics import confusion_matrix, f1_score
+    from sklearn.metrics import confusion_matrix
 
     # Define a function to evaluate the model and display confusion matrix and F1 score
-    def evaluate_model(model, x, y, privileged_groups_index):
+    def evaluate_model(model, x, y):
         # Evaluate the model on the test set
         predictions = model(x)
-        # print("predictions: ", predictions)
         
         # Convert predictions to binary values (0 or 1) using a threshold of 0.5
         binary_predictions = (predictions >= 0.5).float()
-        # print("binary predictions: ", binary_predictions)
         
         # Convert ground truth to numpy array
         y_numpy = y.numpy()
@@ -123,19 +157,11 @@ for repetition in range(ITERATIONS):
         # Convert predictions to numpy array
         predictions_numpy = binary_predictions.detach().numpy()
         
-        # Print debugging information
-        print("Size of y_numpy:", y_numpy.shape)
-        print("Max index in privileged_groups_index:", max(privileged_groups_index))
-
-        # Identify predictions and ground truth for privileged and unprivileged groups
-        y_privileged = y_numpy[privileged_groups_index]
-        predictions_privileged = predictions_numpy[privileged_groups_index]
-
         # Calculate confusion matrix
-        cm = confusion_matrix(y_privileged, predictions_privileged)
+        cm = confusion_matrix(y_numpy, predictions_numpy)
         
         # Calculate F1 score
-        f1 = f1_score(y_privileged, predictions_privileged)
+        f1 = f1_score(y_numpy, predictions_numpy)
         
         # Display confusion matrix and F1 score
         print("Confusion Matrix:")
@@ -144,20 +170,7 @@ for repetition in range(ITERATIONS):
         return cm
 
     # Evaluate the model on the test set and display results
-    privileged_indices = []
-
-    for index, row in adult_data.iterrows():
-        # since the values are floating point numbers, it might be difficult to equate the exact value to -0.600922 so I am using inequality
-        if row["female"] < 0:
-            # print(row["female"])
-            privileged_indices.append(index)
-
-    privileged_group_indices = privileged_indices[1]
-    privileged_group_indices = [index for index, row in adult_data.iterrows() if row['female'] < 0]
-    privileged_group_indices = [index[1] for index in privileged_indices if index[1] < 4504]
-
-    # print("privileged_group_indices: ", privileged_group_indices)
-    conf_matrix = evaluate_model(model, x_test, y_test, privileged_group_indices)
+    conf_matrix = evaluate_model(model, x_test, y_test)
 
     def calculate_metrics_from_confusion_matrix(confusion_matrix):
         # Extract values from the confusion matrix
@@ -165,17 +178,16 @@ for repetition in range(ITERATIONS):
 
         tpr_protected = tp_protected / (tp_protected + fn_protected) if (tp_protected + fn_protected) > 0 else 0
         fpr_protected = fp_protected / (fp_protected + tn_protected) if (fp_protected + tn_protected) > 0 else 0
-        tnr_protected = tn_protected / (tn_protected + fp_protected) if (tn_protected + fp_protected) > 0 else 0
-        fnr_protected = fn_protected / (fn_protected + tp_protected) if (fn_protected + tp_protected) > 0 else 0
 
-        equalized_odds_protected = tpr_protected - fpr_protected 
+        tnr_protected = tn_protected / (tn_protected + fp_protected) if (tn_protected + fp_protected) > 0 else 0
+        equalized_odds_protected = tpr_protected / (1 - tnr_protected) if (1 - tnr_protected) > 0 else 0
+
         return tpr_protected, fpr_protected, equalized_odds_protected
 
     tpr_protected, fpr_protected, equalized_odds_protected = calculate_metrics_from_confusion_matrix(confusion_matrix=conf_matrix)
     print(f"True Positive Rate (TPR) for protected group: {tpr_protected}")
     print(f"False Positive Rate (FPR) for protected group: {fpr_protected}")
     print(f"Equalized Odds for protected group: {equalized_odds_protected}")
-    print(f"Total of Confusion Matrix: {np.sum(conf_matrix)}")
 
     accuracy_list.append(plain_accuracy)
     tpr_list.append(tpr_protected)
@@ -183,7 +195,7 @@ for repetition in range(ITERATIONS):
     equalized_odds_list.append(equalized_odds_protected)
 
 
-    with open("PlainAdultCorrected.txt", "a") as file:
+    with open("PlainGerman.txt", "a") as file:
         file.write(f"Repetition {repetition + 1}:\n")
         file.write(f"Accuracy: {plain_accuracy}\n")
         file.write(f"TPR for protected group: {tpr_protected}\n")
@@ -192,7 +204,7 @@ for repetition in range(ITERATIONS):
         file.write(f"Confusion Matrix:\n{conf_matrix}\n\n")
 
 # Calculate and append average metrics to the output file
-with open("PlainAdultCorrected.txt", "a") as file:
+with open("PlainGerman.txt", "a") as file:
     file.write("\nAverage Metrics:\n")
     file.write(f"Average Accuracy: {np.mean(accuracy_list)}\n")
     file.write(f"Average TPR for protected group: {np.mean(tpr_list)}\n")

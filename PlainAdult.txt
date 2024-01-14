@@ -139,3 +139,283 @@ Average Accuracy: 0.8020722270011902
 Average TPR for protected group: 0.8557705424143246
 Average FPR for protected group: 0.2509911655097178
 Average Equalized Odds for protected group: 3.413531793522
+
+
+-- EXECUTION 2 --
+
+Repetition 1:
+Accuracy: 0.7924067378044128
+TPR for protected group: 0.8326780253385758
+FPR for protected group: 0.2492099322799097
+Equalized Odds for protected group: 3.3412714241393937
+Confusion Matrix:
+[[1663  552]
+ [ 383 1906]]
+
+Repetition 2:
+Accuracy: 0.7986234426498413
+TPR for protected group: 0.8440693025322079
+FPR for protected group: 0.2467820683533067
+Equalized Odds for protected group: 3.420302407563065
+Confusion Matrix:
+[[1697  556]
+ [ 351 1900]]
+
+Repetition 3:
+Accuracy: 0.8026198744773865
+TPR for protected group: 0.863697705802969
+FPR for protected group: 0.2569048662867163
+Equalized Odds for protected group: 3.3619359504037067
+Confusion Matrix:
+[[1695  586]
+ [ 303 1920]]
+
+Repetition 4:
+Accuracy: 0.8101687431335449
+TPR for protected group: 0.8557607739665787
+FPR for protected group: 0.23632286995515694
+Equalized Odds for protected group: 3.621150903122335
+Confusion Matrix:
+[[1703  527]
+ [ 328 1946]]
+
+Repetition 5:
+Accuracy: 0.7992895245552063
+TPR for protected group: 0.8571428571428571
+FPR for protected group: 0.25689277899343543
+Equalized Odds for protected group: 3.3365782428814796
+Confusion Matrix:
+[[1698  587]
+ [ 317 1902]]
+
+Repetition 6:
+Accuracy: 0.7955151200294495
+TPR for protected group: 0.8490650044523598
+FPR for protected group: 0.2577502214348981
+Equalized Odds for protected group: 3.2941387973426606
+Confusion Matrix:
+[[1676  582]
+ [ 339 1907]]
+
+Repetition 7:
+Accuracy: 0.8023978471755981
+TPR for protected group: 0.8553113553113553
+FPR for protected group: 0.24741379310344827
+Equalized Odds for protected group: 3.457007568505827
+Confusion Matrix:
+[[1746  574]
+ [ 316 1868]]
+
+Repetition 8:
+Accuracy: 0.8061723113059998
+TPR for protected group: 0.8622965244170699
+FPR for protected group: 0.2510085163603765
+Equalized Odds for protected group: 3.4353277606687205
+Confusion Matrix:
+[[1671  560]
+ [ 313 1960]]
+
+Repetition 9:
+Accuracy: 0.8030639290809631
+TPR for protected group: 0.850733007552199
+FPR for protected group: 0.24456280514869064
+Equalized Odds for protected group: 3.4785870526589915
+Confusion Matrix:
+[[1702  551]
+ [ 336 1915]]
+
+Repetition 10:
+Accuracy: 0.7999556064605713
+TPR for protected group: 0.8552808988764045
+FPR for protected group: 0.2540587977182975
+Equalized Odds for protected group: 3.366468339446158
+Confusion Matrix:
+[[1700  579]
+ [ 322 1903]]
+
+Repetition 11:
+Accuracy: 0.7881882786750793
+TPR for protected group: 0.8433572710951526
+FPR for protected group: 0.265817223198594
+Equalized Odds for protected group: 3.172696114070359
+Confusion Matrix:
+[[1671  605]
+ [ 349 1879]]
+
+Repetition 12:
+Accuracy: 0.799733579158783
+TPR for protected group: 0.863370786516854
+FPR for protected group: 0.26239578762615184
+Equalized Odds for protected group: 3.290337830220586
+Confusion Matrix:
+[[1681  598]
+ [ 304 1921]]
+
+Repetition 13:
+Accuracy: 0.8110568523406982
+TPR for protected group: 0.8659517426273459
+FPR for protected group: 0.24315975286849073
+Equalized Odds for protected group: 3.561246186558195
+Confusion Matrix:
+[[1715  551]
+ [ 300 1938]]
+
+Repetition 14:
+Accuracy: 0.7986234426498413
+TPR for protected group: 0.8623771224307417
+FPR for protected group: 0.26434245366284204
+Equalized Odds for protected group: 3.2623481793456772
+Confusion Matrix:
+[[1667  599]
+ [ 308 1930]]
+
+Repetition 15:
+Accuracy: 0.799067497253418
+TPR for protected group: 0.86101243339254
+FPR for protected group: 0.26287744227353466
+Equalized Odds for protected group: 3.275337837837838
+Confusion Matrix:
+[[1660  592]
+ [ 313 1939]]
+
+Repetition 16:
+Accuracy: 0.7999556064605713
+TPR for protected group: 0.856
+FPR for protected group: 0.2559893522626442
+Equalized Odds for protected group: 3.343889081455806
+Confusion Matrix:
+[[1677  577]
+ [ 324 1926]]
+
+Repetition 17:
+Accuracy: 0.8023978471755981
+TPR for protected group: 0.8562119895742832
+FPR for protected group: 0.25386012715712986
+Equalized Odds for protected group: 3.3727706637613086
+Confusion Matrix:
+[[1643  559]
+ [ 331 1971]]
+
+Repetition 18:
+Accuracy: 0.8012877702713013
+TPR for protected group: 0.838074398249453
+FPR for protected group: 0.23659305993690852
+Equalized Odds for protected group: 3.5422611232676884
+Confusion Matrix:
+[[1694  525]
+ [ 370 1915]]
+
+Repetition 19:
+Accuracy: 0.8048401474952698
+TPR for protected group: 0.8500222518914108
+FPR for protected group: 0.24014178112538767
+Equalized Odds for protected group: 3.5396683072304693
+Confusion Matrix:
+[[1715  542]
+ [ 337 1910]]
+
+Repetition 20:
+Accuracy: 0.8035079836845398
+TPR for protected group: 0.855863921217547
+FPR for protected group: 0.24801762114537446
+Equalized Odds for protected group: 3.450819007395794
+Confusion Matrix:
+[[1707  563]
+ [ 322 1912]]
+
+Repetition 21:
+Accuracy: 0.7986234426498413
+TPR for protected group: 0.8418480675255442
+FPR for protected group: 0.24456280514869064
+Equalized Odds for protected group: 3.4422571617696023
+Confusion Matrix:
+[[1702  551]
+ [ 356 1895]]
+
+Repetition 22:
+Accuracy: 0.799067497253418
+TPR for protected group: 0.8509123275478415
+FPR for protected group: 0.25254762959680993
+Equalized Odds for protected group: 3.369314251360489
+Confusion Matrix:
+[[1687  570]
+ [ 335 1912]]
+
+Repetition 23:
+Accuracy: 0.8134990930557251
+TPR for protected group: 0.8653675819309123
+FPR for protected group: 0.23864648263579696
+Equalized Odds for protected group: 3.6261484869716956
+Confusion Matrix:
+[[1710  536]
+ [ 304 1954]]
+
+Repetition 24:
+Accuracy: 0.8043960928916931
+TPR for protected group: 0.8427312775330397
+FPR for protected group: 0.23455684870188004
+Equalized Odds for protected group: 3.5928657900931507
+Confusion Matrix:
+[[1710  524]
+ [ 357 1913]]
+
+Repetition 25:
+Accuracy: 0.8023978471755981
+TPR for protected group: 0.8512359550561798
+FPR for protected group: 0.24528301886792453
+Equalized Odds for protected group: 3.470423509075195
+Confusion Matrix:
+[[1720  559]
+ [ 331 1894]]
+
+Repetition 26:
+Accuracy: 0.800399661064148
+TPR for protected group: 0.8522875816993464
+FPR for protected group: 0.2535083748302399
+Equalized Odds for protected group: 3.3619701213818862
+Confusion Matrix:
+[[1649  560]
+ [ 339 1956]]
+
+Repetition 27:
+Accuracy: 0.8052842020988464
+TPR for protected group: 0.8487358326068003
+FPR for protected group: 0.2398190045248869
+Equalized Odds for protected group: 3.5390682831340157
+Confusion Matrix:
+[[1680  530]
+ [ 347 1947]]
+
+Repetition 28:
+Accuracy: 0.8150532841682434
+TPR for protected group: 0.8561976179973533
+FPR for protected group: 0.22664282521233794
+Equalized Odds for protected group: 3.7777397859173165
+Confusion Matrix:
+[[1730  507]
+ [ 326 1941]]
+
+Repetition 29:
+Accuracy: 0.8052842020988464
+TPR for protected group: 0.8516912402428447
+FPR for protected group: 0.24340309372156507
+Equalized Odds for protected group: 3.4990978430911635
+Confusion Matrix:
+[[1663  535]
+ [ 342 1964]]
+
+Repetition 30:
+Accuracy: 0.8101687431335449
+TPR for protected group: 0.8663453111305872
+FPR for protected group: 0.24752475247524752
+Equalized Odds for protected group: 3.5000350569675724
+Confusion Matrix:
+[[1672  550]
+ [ 305 1977]]
+
+
+Average Metrics:
+Average Accuracy: 0.8024349808692932
+Average TPR for protected group: 0.8535210055219449
+Average FPR for protected group: 0.24868653622022246
+Average Equalized Odds for protected group: 3.436768768921271
