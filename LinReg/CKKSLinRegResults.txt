@@ -1,0 +1,63 @@
+In Run 1: Mean Squared Error (MSE): 1.3466574695355578
+In Run 1: Accuracy: 95.27349%
+
+In Run 2: Mean Squared Error (MSE): 1.322605391160632
+In Run 2: Accuracy: 95.39040%
+
+In Run 3: Mean Squared Error (MSE): 1.3150461477604451
+In Run 3: Accuracy: 95.35173%
+
+In Run 4: Mean Squared Error (MSE): 1.368693906320034
+In Run 4: Accuracy: 95.07879%
+
+In Run 5: Mean Squared Error (MSE): 1.3261115316921983
+In Run 5: Accuracy: 95.27876%
+
+In Run 6: Mean Squared Error (MSE): 1.3314808285698083
+In Run 6: Accuracy: 95.29679%
+
+In Run 7: Mean Squared Error (MSE): 1.3430902050041007
+In Run 7: Accuracy: 95.26075%
+
+In Run 8: Mean Squared Error (MSE): 1.3529243990655817
+In Run 8: Accuracy: 95.18754%
+
+In Run 9: Mean Squared Error (MSE): 1.3535644062633658
+In Run 9: Accuracy: 95.22234%
+
+In Run 10: Mean Squared Error (MSE): 1.3435619445137406
+In Run 10: Accuracy: 95.20113%
+
+In Run 11: Mean Squared Error (MSE): 1.3425157503302931
+In Run 11: Accuracy: 95.25619%
+
+In Run 12: Mean Squared Error (MSE): 1.3279389518549023
+In Run 12: Accuracy: 95.25767%
+
+In Run 13: Mean Squared Error (MSE): 1.3395038954493534
+In Run 13: Accuracy: 95.26859%
+
+In Run 14: Mean Squared Error (MSE): 1.3315931119070972
+In Run 14: Accuracy: 95.31895%
+
+In Run 15: Mean Squared Error (MSE): 1.3327372949399832
+In Run 15: Accuracy: 95.23661%
+
+In Run 16: Mean Squared Error (MSE): 1.3480626242129823
+In Run 16: Accuracy: 95.33693%
+
+In Run 17: Mean Squared Error (MSE): 1.3539220859448418
+In Run 17: Accuracy: 95.17835%
+
+In Run 18: Mean Squared Error (MSE): 1.3243704341690277
+In Run 18: Accuracy: 95.28300%
+
+In Run 19: Mean Squared Error (MSE): 1.3402122178141458
+In Run 19: Accuracy: 95.19427%
+
+In Run 20: Mean Squared Error (MSE): 1.3507874953433023
+In Run 20: Accuracy: 95.26436%
+
+Average Mean Squared Error (MSE): 1.3397690045925694
+Average Accuracy: 95.25683%
+

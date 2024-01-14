@@ -72,11 +72,13 @@ class LinRegNormal:
 # slope, intercept = regression.linear_regression()
 
 start = time.time()
-num_runs = 5
+
+# Define the number of repetitions for the experiment here
+ITERATIONS = 20
 mse_sum = 0
 accuracy_sum = 0
 
-for i in range(num_runs):
+for i in range(ITERATIONS):
     data_points = 10000
     regression = LinRegNormal()
     regression.initialize_data(data_points)
@@ -100,10 +102,18 @@ for i in range(num_runs):
     print(f"In Run {i+1}: Accuracy: {accuracy_percentage:.5f}%")
     print()
 
-average_mse = mse_sum / num_runs
-average_accuracy = accuracy_sum / num_runs
+    with open("LinReg/PlainLinRegResults.txt", "a") as f:
+        f.write(f"In Run {i+1}: Mean Squared Error (MSE): {mse}\n")
+        f.write(f"In Run {i+1}: Accuracy: {accuracy_percentage:.5f}%\n\n")
+
+average_mse = mse_sum / ITERATIONS
+average_accuracy = accuracy_sum / ITERATIONS
 
 print(f"Average Mean Squared Error (MSE): {average_mse}")
 print(f"Average Accuracy: {average_accuracy:.5f}%")
+with open("LinReg/PlainLinRegResults.txt", "a") as f:
+    f.write(f"Average Mean Squared Error (MSE): {average_mse}\n")
+    f.write(f"Average Accuracy: {average_accuracy:.5f}%\n\n")
 end = time.time()
-print(f"Average Time taken per run: {(end - start)/num_runs} seconds")
+print(f"Average Time taken per run: {(end - start)/ITERATIONS} seconds")
+

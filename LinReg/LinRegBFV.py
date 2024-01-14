@@ -3,11 +3,11 @@ import tenseal as ts
 from sklearn.linear_model import LinearRegression
 import time
 
-class LinRegCKKS:
+class LinRegBFV:
     def __init__(self):
         self.poly_mod_degree = 4096
         self.coeff_mod_bit_sizes = [40, 20, 40]
-        self.context = ts.context(ts.SCHEME_TYPE.CKKS, self.poly_mod_degree, -1, self.coeff_mod_bit_sizes)
+        self.context = ts.context(ts.SCHEME_TYPE.BFV, self.poly_mod_degree, -1, self.coeff_mod_bit_sizes)
         self.context.global_scale = 2 ** 20
         self.context.generate_galois_keys()
 
@@ -19,17 +19,17 @@ class LinRegCKKS:
         self.x_enc = []
         self.y_enc = []
         for i in range(len(self.x)):
-            self.x_enc.append(ts.ckks_vector(self.context, [self.x[i]]))
-            self.y_enc.append(ts.ckks_vector(self.context, [self.y[i]]))
+            self.x_enc.append(ts.bfv_vector(self.context, [self.x[i]]))
+            self.y_enc.append(ts.bfv_vector(self.context, [self.y[i]]))
         
 
-    def calculate_sum_ckks(self, arr, zero_enc):
+    def calculate_sum_bfv(self, arr, zero_enc):
         sum = zero_enc.copy()
         for i in arr:
             sum += i
         return sum
 
-    def calculate_slope_ckks(self, x_enc, y_enc, x_mean_enc, y_mean_enc, zero_enc):
+    def calculate_slope_bfv(self, x_enc, y_enc, x_mean_enc, y_mean_enc, zero_enc):
         numerator = zero_enc.copy()
         denominator = zero_enc.copy()
 
@@ -41,21 +41,21 @@ class LinRegCKKS:
 
         return numerator._decrypt()[0] / denominator._decrypt()[0]
 
-    def calculate_intercept_ckks(self, x_mean, y_mean, slope):
+    def calculate_intercept_bfv(self, x_mean, y_mean, slope):
         return y_mean - slope * x_mean
 
     def fit(self):
-        zero_enc = ts.ckks_vector(self.context, [0])
-        len_enc = ts.ckks_vector(self.context, [len(self.x)])
+        zero_enc = ts.bfv_vector(self.context, [0])
+        len_enc = ts.bfv_vector(self.context, [len(self.x)])
 
-        x_mean = self.calculate_sum_ckks(self.x_enc, zero_enc)._decrypt()[0] / len(self.x)
-        y_mean = self.calculate_sum_ckks(self.y_enc, zero_enc)._decrypt()[0] / len(self.y)
+        x_mean = self.calculate_sum_bfv(self.x_enc, zero_enc)._decrypt()[0] / len(self.x)
+        y_mean = self.calculate_sum_bfv(self.y_enc, zero_enc)._decrypt()[0] / len(self.y)
 
-        x_mean_enc = ts.ckks_vector(self.context, [x_mean])
-        y_mean_enc = ts.ckks_vector(self.context, [y_mean])
+        x_mean_enc = ts.bfv_vector(self.context, [x_mean])
+        y_mean_enc = ts.bfv_vector(self.context, [y_mean])
 
-        self.slope = self.calculate_slope_ckks(self.x_enc, self.y_enc, x_mean_enc, y_mean_enc, zero_enc)
-        self.intercept = self.calculate_intercept_ckks(x_mean, y_mean, self.slope)
+        self.slope = self.calculate_slope_bfv(self.x_enc, self.y_enc, x_mean_enc, y_mean_enc, zero_enc)
+        self.intercept = self.calculate_intercept_bfv(x_mean, y_mean, self.slope)
 
         return self.slope, self.intercept
     
@@ -82,20 +82,18 @@ class LinRegCKKS:
 # x = [10, 2, 3, 4, 5, 11]  # Modify the x-coordinate array values here
 # y = [20, 3, 4, 5, 6, 11]  # Modify the y-coordinate array values here
 
-# linreg = LinRegCKKS(x, y)
+# linreg = LinRegBFV(x, y)
 # slope, intercept = linreg.fit()
 # print(f"Slope: {slope}, Intercept: {intercept}")
     
 start = time.time()
-
-# Define the number of iterations to run
-ITERATIONS = 20
+ITERATIONS = 10
 mse_sum = 0
 accuracy_sum = 0
 
 for i in range(ITERATIONS):
     data_points = 10000
-    regression = LinRegCKKS()
+    regression = LinRegBFV()
     regression.initialize_data(data_points)
     slope, intercept = regression.fit()
 
@@ -116,7 +114,7 @@ for i in range(ITERATIONS):
     print(f"In Run {i+1}: Mean Squared Error (MSE): {mse}")
     print(f"In Run {i+1}: Accuracy: {accuracy_percentage:.5f}%")
     print()
-    with open("LinReg/CKKSLinRegResults.txt", "a") as f:
+    with open("LinReg/BFVLinRegResults.txt", "a") as f:
         f.write(f"In Run {i+1}: Mean Squared Error (MSE): {mse}\n")
         f.write(f"In Run {i+1}: Accuracy: {accuracy_percentage:.5f}%\n\n")
 
@@ -125,8 +123,9 @@ average_accuracy = accuracy_sum / ITERATIONS
 
 print(f"Average Mean Squared Error (MSE): {average_mse}")
 print(f"Average Accuracy: {average_accuracy:.5f}%")
-with open("LinReg/CKKSLinRegResults.txt", "a") as f:
+with open("LinReg/BFVLinRegResults.txt", "a") as f:
     f.write(f"Average Mean Squared Error (MSE): {average_mse}\n")
     f.write(f"Average Accuracy: {average_accuracy:.5f}%\n\n")
+
 end = time.time()
 print(f"Average Time taken per run: {(end - start)/ITERATIONS} seconds")

@@ -175,7 +175,6 @@ for repetition in range(ITERATIONS):
     print(f"True Positive Rate (TPR) for protected group: {tpr_protected}")
     print(f"False Positive Rate (FPR) for protected group: {fpr_protected}")
     print(f"Equalized Odds for protected group: {equalized_odds_protected}")
-    print(f"Total of Confusion Matrix: {np.sum(conf_matrix)}")
 
     accuracy_list.append(plain_accuracy)
     tpr_list.append(tpr_protected)

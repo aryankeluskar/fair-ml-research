@@ -336,7 +336,7 @@ for repetition in range(ITERATIONS):
     with open("CKKSAdultCorrected.txt", "a") as file:
         file.write(f"Repetition {repetition + 1}:\n")
         file.write(f"Plain Accuracy: {plain_accuracy}\n")
-        file.write(f"Encrypet Accuracy: {encrypted_accuracy}\n")
+        file.write(f"Encrypted Accuracy: {encrypted_accuracy}\n")
         file.write(f"Difference between plain and encrypted accuracies: {diff_accuracy}\n")
         file.write(f"TPR for protected group: {tpr_protected}\n")
         file.write(f"FPR for protected group: {fpr_protected}\n")
