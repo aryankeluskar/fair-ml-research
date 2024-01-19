@@ -1,44 +1,35 @@
-import sys
-sys.path.insert(1, "../")  
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from fairlearn.datasets import fetch_adult
+from fairlearn.metrics import MetricFrame, selection_rate
+from fairlearn.metrics import *
 
-import numpy as np
-np.random.seed(0)
+data = fetch_adult()
 
-from aif360.datasets import GermanDataset, AdultDataset
-from aif360.metrics import BinaryLabelDatasetMetric
-from aif360.algorithms.preprocessing import Reweighing
-
-from IPython.display import Markdown, display
+print(type(data))
 
 
-dataset_orig = GermanDataset(
-    protected_attribute_names=['age'],           # this dataset also contains protected
-                                                 # attribute for "sex" which we do not
-                                                 # consider in this evaluation
-    privileged_classes=[lambda x: x >= 25],      # age >=25 is considered privileged
-    features_to_drop=['personal_status', 'sex'] # ignore sex-related attributes
+X = data.data
+y_true = (data.target == ">50K") * 1
+sex = X["sex"]
+
+selection_rates = MetricFrame(
+    metrics=selection_rate, y_true=y_true, y_pred=y_true, sensitive_features=sex
 )
 
-print(type(dataset_orig))
-
-dataset_orig_train, dataset_orig_test = dataset_orig.split([0.7], shuffle=True)
-
-privileged_groups = [{'age': 1}]
-unprivileged_groups = [{'age': 0}]
+fig = selection_rates.by_group.plot.bar(
+    legend=False, rot=0, title="Fraction earning over $50,000"
+)
 
 
-metric_orig_train = BinaryLabelDatasetMetric(dataset_orig_train, 
-                                             unprivileged_groups=unprivileged_groups,
-                                             privileged_groups=privileged_groups)
-# display(Markdown("#### Original training dataset"))
-print("Difference in mean outcomes between unprivileged and privileged groups = %f" % metric_orig_train.mean_difference())
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y_true, test_size=0.3, random_state=42)
 
-RW = Reweighing(unprivileged_groups=unprivileged_groups,
-                privileged_groups=privileged_groups)
-dataset_transf_train = RW.fit_transform(dataset_orig_train)
+# Train a logistic regression model
+model = LogisticRegression()
+model.fit(X_train, y_train)
 
-metric_transf_train = BinaryLabelDatasetMetric(dataset_transf_train, 
-                                               unprivileged_groups=unprivileged_groups,
-                                               privileged_groups=privileged_groups)
-# display(Markdown("#### Transformed training dataset"))
-print("Difference in mean outcomes between unprivileged and privileged groups = %f" % metric_transf_train.mean_difference())
+# Get predictions on the test set
+y_pred = model.predict(X_test)
+
+print("Accuracy: ", model.score(X_test, y_test))

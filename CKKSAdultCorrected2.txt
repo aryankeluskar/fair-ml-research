@@ -1,0 +1,338 @@
+Repetition 1:
+Plain Accuracy: 0.8043960928916931
+Encrypted Accuracy: 0.7999555950266429
+Difference between plain and encrypted accuracies: 0.004440486431121826
+TPR for protected group: 0.90101444820166
+FPR for protected group: 0.2996132103540613
+Equalized Odds for protected group: 0.6014012378475987
+Confusion Matrix:
+[[2354 1007]
+ [ 322 2931]]
+
+Repetition 2:
+Plain Accuracy: 0.7981793880462646
+Encrypted Accuracy: 0.7353463587921847
+Difference between plain and encrypted accuracies: 0.06283301115036011
+TPR for protected group: 0.560459492140266
+FPR for protected group: 0.0940713853599516
+Equalized Odds for protected group: 0.4663881067803144
+Confusion Matrix:
+[[2995  311]
+ [1454 1854]]
+
+Repetition 3:
+Plain Accuracy: 0.8052842020988464
+Encrypted Accuracy: 0.7921847246891652
+Difference between plain and encrypted accuracies: 0.013099491596221924
+TPR for protected group: 0.7583182093163945
+FPR for protected group: 0.18228536880290205
+Equalized Odds for protected group: 0.5760328405134925
+Confusion Matrix:
+[[2705  603]
+ [ 799 2507]]
+
+Repetition 4:
+Plain Accuracy: 0.8030639290809631
+Encrypted Accuracy: 0.8041740674955595
+Difference between plain and encrypted accuracies: -0.0011101365089416504
+TPR for protected group: 0.8330831582107475
+FPR for protected group: 0.22235759975632044
+Equalized Odds for protected group: 0.6107255584544271
+Confusion Matrix:
+[[2553  730]
+ [ 556 2775]]
+
+Repetition 5:
+Plain Accuracy: 0.7944049835205078
+Encrypted Accuracy: 0.7053730017761989
+Difference between plain and encrypted accuracies: 0.08903199434280396
+TPR for protected group: 0.45616733312826824
+FPR for protected group: 0.05173951828724353
+Equalized Odds for protected group: 0.4044278148410247
+Confusion Matrix:
+[[3189  174]
+ [1768 1483]]
+
+Repetition 6:
+Plain Accuracy: 0.8055062294006348
+Encrypted Accuracy: 0.7071492007104796
+Difference between plain and encrypted accuracies: 0.09835702180862427
+TPR for protected group: 0.46484848484848484
+FPR for protected group: 0.03771876885938443
+Equalized Odds for protected group: 0.42712971598910043
+Confusion Matrix:
+[[3189  125]
+ [1766 1534]]
+
+Repetition 7:
+Plain Accuracy: 0.7961812019348145
+Encrypted Accuracy: 0.6900532859680284
+Difference between plain and encrypted accuracies: 0.10612791776657104
+TPR for protected group: 0.4235258904519605
+FPR for protected group: 0.040024442407577146
+Equalized Odds for protected group: 0.38350144804438335
+Confusion Matrix:
+[[3142  131]
+ [1926 1415]]
+
+Repetition 8:
+Plain Accuracy: 0.8068383932113647
+Encrypted Accuracy: 0.7329040852575488
+Difference between plain and encrypted accuracies: 0.07393431663513184
+TPR for protected group: 0.5098159509202455
+FPR for protected group: 0.048598688133571856
+Equalized Odds for protected group: 0.4612172627866736
+Confusion Matrix:
+[[3191  163]
+ [1598 1662]]
+
+Repetition 9:
+Plain Accuracy: 0.8101687431335449
+Encrypted Accuracy: 0.80550621669627
+Difference between plain and encrypted accuracies: 0.004662513732910156
+TPR for protected group: 0.9006942348324781
+FPR for protected group: 0.28688276279915176
+Equalized Odds for protected group: 0.6138114720333263
+Confusion Matrix:
+[[2354  947]
+ [ 329 2984]]
+
+Repetition 10:
+Plain Accuracy: 0.8006216883659363
+Encrypted Accuracy: 0.7968472468916519
+Difference between plain and encrypted accuracies: 0.0037744641304016113
+TPR for protected group: 0.8650602409638555
+FPR for protected group: 0.26836672738312084
+Equalized Odds for protected group: 0.5966935135807346
+Confusion Matrix:
+[[2410  884]
+ [ 448 2872]]
+
+Repetition 11:
+Plain Accuracy: 0.8043960928916931
+Encrypted Accuracy: 0.80550621669627
+Difference between plain and encrypted accuracies: -0.0011101365089416504
+TPR for protected group: 0.8350578210590384
+FPR for protected group: 0.22746394230769232
+Equalized Odds for protected group: 0.6075938787513461
+Confusion Matrix:
+[[2571  757]
+ [ 542 2744]]
+
+Repetition 12:
+Plain Accuracy: 0.8095026612281799
+Encrypted Accuracy: 0.8077264653641207
+Difference between plain and encrypted accuracies: 0.0017762184143066406
+TPR for protected group: 0.8754108156558111
+FPR for protected group: 0.2647689011325375
+Equalized Odds for protected group: 0.6106419145232737
+Confusion Matrix:
+[[2402  865]
+ [ 417 2930]]
+
+Repetition 13:
+Plain Accuracy: 0.8086145520210266
+Encrypted Accuracy: 0.7935168738898757
+Difference between plain and encrypted accuracies: 0.01509767770767212
+TPR for protected group: 0.7560538116591928
+FPR for protected group: 0.17620067298868156
+Equalized Odds for protected group: 0.5798531386705112
+Confusion Matrix:
+[[2693  576]
+ [ 816 2529]]
+
+Repetition 14:
+Plain Accuracy: 0.799067497253418
+Encrypted Accuracy: 0.7633214920071048
+Difference between plain and encrypted accuracies: 0.035745978355407715
+TPR for protected group: 0.6234855545200373
+FPR for protected group: 0.10250368188512518
+Equalized Odds for protected group: 0.5209818726349121
+Confusion Matrix:
+[[3047  348]
+ [1212 2007]]
+
+Repetition 15:
+Plain Accuracy: 0.8015097975730896
+Encrypted Accuracy: 0.7826376554174067
+Difference between plain and encrypted accuracies: 0.01887214183807373
+TPR for protected group: 0.7099006921456515
+FPR for protected group: 0.14919477362503797
+Equalized Odds for protected group: 0.5607059185206136
+Confusion Matrix:
+[[2800  491]
+ [ 964 2359]]
+
+Repetition 16:
+Plain Accuracy: 0.8001776337623596
+Encrypted Accuracy: 0.7362344582593251
+Difference between plain and encrypted accuracies: 0.06394314765930176
+TPR for protected group: 0.5503477472029029
+FPR for protected group: 0.07983066223162988
+Equalized Odds for protected group: 0.47051708497127304
+Confusion Matrix:
+[[3043  264]
+ [1487 1820]]
+
+Repetition 17:
+Plain Accuracy: 0.8070604205131531
+Encrypted Accuracy: 0.7937388987566607
+Difference between plain and encrypted accuracies: 0.013321518898010254
+TPR for protected group: 0.7560024009603842
+FPR for protected group: 0.1663619744058501
+Equalized Odds for protected group: 0.5896404265545341
+Confusion Matrix:
+[[2736  546]
+ [ 813 2519]]
+
+Repetition 18:
+Plain Accuracy: 0.8079484701156616
+Encrypted Accuracy: 0.7844138543516874
+Difference between plain and encrypted accuracies: 0.02353459596633911
+TPR for protected group: 0.6939197166469894
+FPR for protected group: 0.12430254184748915
+Equalized Odds for protected group: 0.5696171747995002
+Confusion Matrix:
+[[2825  401]
+ [1037 2351]]
+
+Repetition 19:
+Plain Accuracy: 0.7972912788391113
+Encrypted Accuracy: 0.7553285968028419
+Difference between plain and encrypted accuracies: 0.04196268320083618
+TPR for protected group: 0.6183298160988845
+FPR for protected group: 0.10464058234758872
+Equalized Odds for protected group: 0.5136892337512957
+Confusion Matrix:
+[[2952  345]
+ [1266 2051]]
+
+Repetition 20:
+Plain Accuracy: 0.8010657429695129
+Encrypted Accuracy: 0.6156749555950266
+Difference between plain and encrypted accuracies: 0.18539077043533325
+TPR for protected group: 0.24442435201928872
+FPR for protected group: 0.009101941747572815
+Equalized Odds for protected group: 0.2353224102717159
+Confusion Matrix:
+[[3266   30]
+ [2507  811]]
+
+Repetition 21:
+Plain Accuracy: 0.8026198744773865
+Encrypted Accuracy: 0.7657637655417406
+Difference between plain and encrypted accuracies: 0.036856114864349365
+TPR for protected group: 0.9580505860579889
+FPR for protected group: 0.4297153024911032
+Equalized Odds for protected group: 0.5283352835668857
+Confusion Matrix:
+[[1923 1449]
+ [ 136 3106]]
+
+Repetition 22:
+Plain Accuracy: 0.799067497253418
+Encrypted Accuracy: 0.8008436944937833
+Difference between plain and encrypted accuracies: -0.0017762184143066406
+TPR for protected group: 0.8450789793438639
+FPR for protected group: 0.23570138470800722
+Equalized Odds for protected group: 0.6093775946358566
+Confusion Matrix:
+[[2539  783]
+ [ 510 2782]]
+
+Repetition 23:
+Plain Accuracy: 0.8021758198738098
+Encrypted Accuracy: 0.7979573712255773
+Difference between plain and encrypted accuracies: 0.004218459129333496
+TPR for protected group: 0.8933577087141986
+FPR for protected group: 0.30312124849939975
+Equalized Odds for protected group: 0.5902364602147989
+Confusion Matrix:
+[[2322 1010]
+ [ 350 2932]]
+
+Repetition 24:
+Plain Accuracy: 0.8086145520210266
+Encrypted Accuracy: 0.7544404973357016
+Difference between plain and encrypted accuracies: 0.054174065589904785
+TPR for protected group: 0.9624542124542125
+FPR for protected group: 0.4508687837028161
+Equalized Odds for protected group: 0.5115854287513963
+Confusion Matrix:
+[[1833 1505]
+ [ 123 3153]]
+
+Repetition 25:
+Plain Accuracy: 0.8001776337623596
+Encrypted Accuracy: 0.7984014209591475
+Difference between plain and encrypted accuracies: 0.0017762184143066406
+TPR for protected group: 0.8843329253365974
+FPR for protected group: 0.2872086072922893
+Equalized Odds for protected group: 0.597124318044308
+Confusion Matrix:
+[[2385  961]
+ [ 378 2890]]
+
+Repetition 26:
+Plain Accuracy: 0.796403169631958
+Encrypted Accuracy: 0.7737566607460036
+Difference between plain and encrypted accuracies: 0.02264648675918579
+TPR for protected group: 0.932928679817906
+FPR for protected group: 0.3814401928291654
+Equalized Odds for protected group: 0.5514884869887405
+Confusion Matrix:
+[[2053 1266]
+ [ 221 3074]]
+
+Repetition 27:
+Plain Accuracy: 0.8012877702713013
+Encrypted Accuracy: 0.7959591474245116
+Difference between plain and encrypted accuracies: 0.0053285956382751465
+TPR for protected group: 0.8974984746796827
+FPR for protected group: 0.30155875299760193
+Equalized Odds for protected group: 0.5959397216820808
+Confusion Matrix:
+[[2330 1006]
+ [ 336 2942]]
+
+Repetition 28:
+Plain Accuracy: 0.8043960928916931
+Encrypted Accuracy: 0.7870781527531083
+Difference between plain and encrypted accuracies: 0.01731795072555542
+TPR for protected group: 0.9356197352587244
+FPR for protected group: 0.36231003039513676
+Equalized Odds for protected group: 0.5733097048635877
+Confusion Matrix:
+[[2098 1192]
+ [ 214 3110]]
+
+Repetition 29:
+Plain Accuracy: 0.798401415348053
+Encrypted Accuracy: 0.7886323268206039
+Difference between plain and encrypted accuracies: 0.009769082069396973
+TPR for protected group: 0.9106925880923451
+FPR for protected group: 0.32811559301625526
+Equalized Odds for protected group: 0.5825769950760898
+Confusion Matrix:
+[[2232 1090]
+ [ 294 2998]]
+
+Repetition 30:
+Plain Accuracy: 0.8050621747970581
+Encrypted Accuracy: 0.7886323268206039
+Difference between plain and encrypted accuracies: 0.0164298415184021
+TPR for protected group: 0.7682672233820459
+FPR for protected group: 0.18736583869978535
+Equalized Odds for protected group: 0.5809013846822606
+Confusion Matrix:
+[[2650  611]
+ [ 777 2576]]
+
+
+Average Metrics:
+Average Plain Accuracy: 0.8026495575904846
+Average Encrypted Accuracy: 0.768635287152161
+Average Difference between plain and encrypted accuracies: 0.03401421010494232
+Average TPR for protected group: 0.7441400428040036
+Average FPR for protected group: 0.20678112937646836
+Average Equalized Odds for protected group: 0.5373589134275353

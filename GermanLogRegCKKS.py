@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 # torch.random.manual_seed(73)
 # random.seed(73)
 
-
 # Initialize lists to store metrics over repetitions
 plain_accuracy_list = []
 encrypted_accuracy_list = []
@@ -20,9 +19,20 @@ diff_accuracy_list = []
 tpr_list = []
 fpr_list = []
 equalized_odds_list = []
+tpr_list = []
+fpr_list = []
+equalized_odds_list = []
+predictive_rate_parity_list = []
+demographic_parity_list = []
+proportional_parity_list = []
+accuracy_parity_list = []
+matthews_correlation_coefficient_list = []
 
-for repetition in range(150):
+# Define the number of repetitions for the experiment here
+ITERATIONS = 10
 
+for repetition in range(ITERATIONS):
+    # separate train and test data, alloting 30% of the data for testing
     def split_train_test(x, y, test_ratio=0.3):
         idxs = [i for i in range(len(x))]
         random.shuffle(idxs)
@@ -31,8 +41,8 @@ for repetition in range(150):
         test_idxs, train_idxs = idxs[:delim], idxs[delim:]
         return x[train_idxs], y[train_idxs], x[test_idxs], y[test_idxs]
 
-
-    def adult_income_data():
+    # read adult income data, standardize it, and split into train and test sets
+    def german_credit_data():
         data = pd.read_csv("./germanPreprocessed.csv")
         # drop rows with missing values
         data = data.dropna()
@@ -45,21 +55,19 @@ for repetition in range(150):
         # standardize data
         data = (data - data.mean()) / data.std()
         x = torch.tensor(data.values).float()
-        return split_train_test(x, y)
+        return split_train_test(x, y), data
 
-    def random_data(m=1024, n=2):
-        # data separable by the line `y = x`
-        x_train = torch.randn(m, n)
-        x_test = torch.randn(m // 2, n)
-        y_train = (x_train[:, 0] >= x_train[:, 1]).float().unsqueeze(0).t()
-        y_test = (x_test[:, 0] >= x_test[:, 1]).float().unsqueeze(0).t()
-        return x_train, y_train, x_test, y_test
+    dataset_read_output = german_credit_data()
+    x_train, y_train, x_test, y_test = dataset_read_output[0]
+    # print(f"type and x_test: {type(x_test)}{x_test}")
+    # print(f"type and y_test: {type(y_test)}{y_test}")
 
+    x_test_df = pd.DataFrame(x_test.numpy())
+    for index, row in x_test_df.iterrows():
+        if row[19] > 0:
+            print(row[19])
 
-
-    # You can use whatever data you want without modification to the tutorial
-    # x_train, y_train, x_test, y_test = random_data()
-    x_train, y_train, x_test, y_test = adult_income_data()
+    adult_data = dataset_read_output[1]
 
     print("############# Data summary #############")
     print(f"x_train has shape: {x_train.shape}")
@@ -68,11 +76,7 @@ for repetition in range(150):
     print(f"y_test has shape: {y_test.shape}")
     print("#######################################")
 
-    # ## Training a Logistic Regression Model
-    # 
-    # We will start by training a logistic regression model (without any encryption), which can be viewed as a single layer neural network with a single node. We will be using this model as a means of comparison against encrypted training and evaluation.
-
-
+    # Plain Logistic Regression for testing purposes
     class LR(torch.nn.Module):
 
         def __init__(self, n_features):
@@ -118,14 +122,9 @@ for repetition in range(150):
     plain_accuracy = accuracy(model, x_test, y_test)
     print(f"Accuracy on plain test_set: {plain_accuracy}")
 
-
-    # It is worth to remember that a high accuracy isn't our goal. We just want to see that training on encrypted data doesn't affect the final result, so we will be comparing accuracies over encrypted data against the `plain_accuracy` we got here.
-
-
-    # ## Encrypted Evaluation
-    # 
-    # In this part, we will just focus on evaluating the logistic regression model with plain parameters (optionally encrypted parameters) on the encrypted test set. We first create a PyTorch-like LR model that can evaluate encrypted data:
-
+    # Old Version which used AIF360
+    # privileged_groups = [{'female': 0}]
+    # unprivileged_groups = [{'female': 1}]
 
     class EncryptedLR:
         
@@ -176,9 +175,6 @@ for repetition in range(150):
     ctx_eval.generate_galois_keys()
 
 
-    # We will encrypt the whole test set before the evaluation:
-
-
     t_start = time()
     enc_x_test = [ts.ckks_vector(ctx_eval, x.tolist()) for x in x_test]
     t_end = time()
@@ -187,9 +183,6 @@ for repetition in range(150):
 
     # (optional) encrypt the model's parameters
     # eelr.encrypt(ctx_eval)
-
-
-    # As you may have already noticed when we built the EncryptedLR class, we don't compute the sigmoid function on the encrypted output of the linear layer, simply because it's not needed, and computing sigmoid over encrypted data will increase the computation time and require larger encryption parameters. However, we will use sigmoid for the encrypted training part. We now proceed with the evaluation of the encrypted test set and compare the accuracy to the one on the plain test set.
 
 
     def encrypted_evaluation(model, enc_x_test, y_test):
@@ -222,6 +215,8 @@ for repetition in range(150):
 
     enc_features = [ts.ckks_vector(ctx_eval, f.tolist()) for f in features_np]
 
+    # CustomBinaryLabelDataset is not in the tenseal library, so I created it here
+    # the normal BinaryLabelDataset class in tenseal does not allow for CKKS vectors
     class CustomBinaryLabelDataset:
         def __init__(self, features, labels, biased_column_index=0, feature_shape=0):
             self.features = features
@@ -235,8 +230,8 @@ for repetition in range(150):
             return [decrypted_feature[self.biased_column_index] for decrypted_feature in decrypted_features]
             # return [feature[self.biased_column_index] for feature in self.features]
 
-    # Assuming biased column is female (column index 0), you can create the dataset as follows:
-    biased_column_index = 9
+    # biased column is foreign worker (column index 20 in germanPreprocessed.csv), you can create the dataset as follows:
+    biased_column_index = 20
     custom_dataset = CustomBinaryLabelDataset(features=enc_features, labels=label, biased_column_index=biased_column_index, feature_shape=x_test.shape)
     # print(custom_dataset)
     # print(type(custom_dataset))
@@ -261,17 +256,48 @@ for repetition in range(150):
         f1 = f1_score(true_labels, binary_predictions)
         return f1
 
-    predictions = get_predictions(eelr, enc_x_test)
-    binary_predictions = convert_predictions(predictions)
-    true_labels = y_test.numpy().flatten()
+    privileged_indices = []
 
-    conf_matrix = confusion_matrix(true_labels, binary_predictions)
-    print("Confusion Matrix:")
-    print(conf_matrix)
+    for index, row in y_test.iterrows():
+        # since the values are floating point numbers, it might be difficult to equate the exact value to -0.600922 so I am using inequality
+        if row["Foreign Worker"] > 0:
+            # print(row["female"])
+            privileged_indices.append(index)
 
-    # Compute F1 Score
-    f1 = compute_f1_score(true_labels, binary_predictions)
-    print(f"F1 Score: {f1}")
+    privileged_group_indices = privileged_indices[1]
+    privileged_group_indices = [index for index, row in y_test.iterrows() if row['Foreign Worker'] > 0]
+    privileged_group_indices = [index[1] for index in privileged_indices if index[1] < 4504]
+
+    # Evaluate the model on the test set
+    predictions_list = get_predictions(eelr, enc_x_test)
+    predictions = torch.tensor(predictions_list).unsqueeze(1)
+
+    # print("predictions: ", predictions)
+
+    # Convert predictions to binary values (0 or 1) using a threshold of 0.5
+    binary_predictions = (predictions >= 0.5).float()
+    # print("binary predictions: ", binary_predictions)
+    
+    # Convert ground truth to numpy array
+    y_numpy = y_test.numpy()
+    
+    # Convert predictions to numpy array
+    predictions_numpy = binary_predictions.detach().numpy()
+    
+    # Print debugging information
+    # print("Size of y_numpy:", y_numpy.shape)
+    # print("Max index in privileged_group_indices:", max(privileged_group_indices))
+
+    # Identify predictions and ground truth for privileged and unprivileged groups
+    y_privileged = y_numpy[privileged_group_indices]
+    predictions_privileged = predictions_numpy[privileged_group_indices]
+
+    # Calculate confusion matrix
+    conf_matrix = confusion_matrix(y_privileged, predictions_privileged)
+    
+    # Calculate F1 score
+    f1 = f1_score(y_privileged, predictions_privileged)
+        
 
     def calculate_disparate_impact(predictions, protected_group_indices):
         # Assuming 1 indicates positive prediction
@@ -288,48 +314,69 @@ for repetition in range(150):
         fpr_protected = fp_protected / (fp_protected + tn_protected) if (fp_protected + tn_protected) > 0 else 0
 
         tnr_protected = tn_protected / (tn_protected + fp_protected) if (tn_protected + fp_protected) > 0 else 0
-        equalized_odds_protected = tpr_protected / (1 - tnr_protected) if (1 - tnr_protected) > 0 else 0
+        fnr_protected = fn_protected / (fn_protected + tp_protected) if (fn_protected + tp_protected) > 0 else 0
 
-        return tpr_protected, fpr_protected, equalized_odds_protected
-
-    def calculate_demographic_parity(predictions, protected_group_indices):
-        positive_rate_protected = sum(predictions[protected_group_indices] == 1) / len(protected_group_indices)
-        positive_rate_unprotected = sum(predictions[~protected_group_indices] == 1) / len(~protected_group_indices)
-
-        return positive_rate_protected, positive_rate_unprotected
+        predictive_rate_parity = tp_protected / (tp_protected+fp_protected)
+        demographic_parity = (tp_protected+fp_protected) 
+        proportional_parity = (tp_protected+fp_protected)/(tp_protected+fn_protected+fp_protected+tn_protected) 
+        accuracy_parity = (tp_protected+tn_protected)/(tp_protected+fn_protected+fp_protected+tn_protected)
+        matthews_correlation_coefficient = (tp_protected*tn_protected-fp_protected*fn_protected)/np.sqrt((tp_protected+fp_protected)*(tp_protected+fn_protected)*(tn_protected+fp_protected)*(tn_protected+fn_protected))
+        equalized_odds_protected = tpr_protected / (tpr_protected+fn_protected) 
+        
+        return tpr_protected, fpr_protected, equalized_odds_protected, predictive_rate_parity, demographic_parity, proportional_parity, accuracy_parity, matthews_correlation_coefficient
 
     # Get Predictions
     # predictions = get_predictions(eelr, enc_x_test)
-    tpr_protected, fpr_protected, equalized_odds_protected = calculate_metrics_from_confusion_matrix(confusion_matrix=conf_matrix)
+    tpr_protected, fpr_protected, equalized_odds_protected, predictive_rate_parity, demographic_parity, proportional_parity, accuracy_parity, matthews_correlation_coefficient = calculate_metrics_from_confusion_matrix(confusion_matrix=conf_matrix)
     print(f"True Positive Rate (TPR) for protected group: {tpr_protected}")
     print(f"False Positive Rate (FPR) for protected group: {fpr_protected}")
     print(f"Equalized Odds for protected group: {equalized_odds_protected}")
+    print(f"Predictive Rate Parity for protected group: {predictive_rate_parity}")
+    print(f"Demographic Parity for protected group: {demographic_parity}")
+    print(f"Proportional Parity for protected group: {proportional_parity}")
+    print(f"Accuracy Parity for protected group: {accuracy_parity}")
+    print(f"Matthews Correlation Coefficient for protected group: {matthews_correlation_coefficient}")
 
-    print("THIS IS RUN NUMBER: ", repetition + 1)
-    # demographic_parity = calculate_demographic_parity(predictions, custom_dataset.get_biased_column())
-    # print(f"Demographic Parity: {demographic_parity}")
-    # disparate_impact = calculate_disparate_impact(predictions, custom_dataset.get_biased_column())
-    # print(f"Disparate Impact: {disparate_impact}")
-    # accuracy_list.append(plain_accuracy)
     plain_accuracy_list.append(plain_accuracy)
     encrypted_accuracy_list.append(encrypted_accuracy)
     diff_accuracy_list.append(diff_accuracy)
     tpr_list.append(tpr_protected)
     fpr_list.append(fpr_protected)
     equalized_odds_list.append(equalized_odds_protected)
+    predictive_rate_parity_list.append(predictive_rate_parity)
+    demographic_parity_list.append(demographic_parity)
+    proportional_parity_list.append(proportional_parity)
+    accuracy_parity_list.append(accuracy_parity)
+    matthews_correlation_coefficient_list.append(matthews_correlation_coefficient)
 
+    print("THIS IS RUN NUMBER: ", repetition + 1)
 
-    with open("GermanCKKS.txt", "a") as file:
+    with open("GermanAdultMoreMetrics.txt", "a") as file:
         file.write(f"Repetition {repetition + 1}:\n")
         file.write(f"Plain Accuracy: {plain_accuracy}\n")
-        file.write(f"Encrypet Accuracy: {encrypted_accuracy}\n")
+        file.write(f"Encrypted Accuracy: {encrypted_accuracy}\n")
         file.write(f"Difference between plain and encrypted accuracies: {diff_accuracy}\n")
         file.write(f"TPR for protected group: {tpr_protected}\n")
         file.write(f"FPR for protected group: {fpr_protected}\n")
         file.write(f"Equalized Odds for protected group: {equalized_odds_protected}\n")
+        file.write(f"Predictive Rate Parity for protected group: {predictive_rate_parity}\n")
+        file.write(f"Demographic Parity for protected group: {demographic_parity}\n")
+        file.write(f"Proportional Parity for protected group: {proportional_parity}\n")
+        file.write(f"Accuracy Parity for protected group: {accuracy_parity}\n")
+        file.write(f"Matthews Correlation Coefficient for protected group: {matthews_correlation_coefficient}\n")
         file.write(f"Confusion Matrix:\n{conf_matrix}\n\n")
 
-with open("GermanCKKS.txt", "a") as file:
+        # In case there are a lot of ITERATIONS and you want to play it safe by saving average metrics every 5 runs 
+        # if repetition % 5 == 0:
+        #     file.write(f"\nAverage Metrics till run number:{repetition+1}\n")
+        #     file.write(f"Average Plain Accuracy: {np.mean(plain_accuracy_list)}\n")
+        #     file.write(f"Average Encrypted Accuracy: {np.mean(encrypted_accuracy_list)}\n")
+        #     file.write(f"Average Difference between plain and encrypted accuracies: {np.mean(diff_accuracy_list)}\n")
+        #     file.write(f"Average TPR for protected group: {np.mean(tpr_list)}\n")
+        #     file.write(f"Average FPR for protected group: {np.mean(fpr_list)}\n")
+        #     file.write(f"Average Equalized Odds for protected group: {np.mean(equalized_odds_list)}\n") 
+
+with open("GermanAdultMoreMetrics.txt", "a") as file:
     file.write("\nAverage Metrics:\n")
     file.write(f"Average Plain Accuracy: {np.mean(plain_accuracy_list)}\n")
     file.write(f"Average Encrypted Accuracy: {np.mean(encrypted_accuracy_list)}\n")
@@ -337,3 +384,9 @@ with open("GermanCKKS.txt", "a") as file:
     file.write(f"Average TPR for protected group: {np.mean(tpr_list)}\n")
     file.write(f"Average FPR for protected group: {np.mean(fpr_list)}\n")
     file.write(f"Average Equalized Odds for protected group: {np.mean(equalized_odds_list)}\n")
+    file.write(f"Average Predictive Rate Parity for protected group: {np.mean(predictive_rate_parity_list)}\n")
+    file.write(f"Average Demographic Parity for protected group: {np.mean(demographic_parity_list)}\n")
+    file.write(f"Average Proportional Parity for protected group: {np.mean(proportional_parity_list)}\n")
+    file.write(f"Average Accuracy Parity for protected group: {np.mean(accuracy_parity_list)}\n")
+    file.write(f"Average Matthews Correlation Coefficient for protected group: {np.mean(matthews_correlation_coefficient_list)}\n")
+

@@ -6,10 +6,8 @@ import time
 class LinRegBFV:
     def __init__(self):
         self.poly_mod_degree = 4096
-        self.coeff_mod_bit_sizes = [40, 20, 40]
-        self.context = ts.context(ts.SCHEME_TYPE.BFV, self.poly_mod_degree, -1, self.coeff_mod_bit_sizes)
-        self.context.global_scale = 2 ** 20
-        self.context.generate_galois_keys()
+        self.plain_modulus = 1032193
+        self.context = ts.context(ts.SCHEME_TYPE.BFV, self.poly_mod_degree, self.plain_modulus)
 
     def initialize_data(self, n):
         # Generate random data for x and y
@@ -92,7 +90,7 @@ mse_sum = 0
 accuracy_sum = 0
 
 for i in range(ITERATIONS):
-    data_points = 10000
+    data_points = 1000
     regression = LinRegBFV()
     regression.initialize_data(data_points)
     slope, intercept = regression.fit()

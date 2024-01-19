@@ -89,12 +89,12 @@ class LinRegCKKS:
 start = time.time()
 
 # Define the number of iterations to run
-ITERATIONS = 20
+ITERATIONS = 10
 mse_sum = 0
 accuracy_sum = 0
 
 for i in range(ITERATIONS):
-    data_points = 10000
+    data_points = 1000
     regression = LinRegCKKS()
     regression.initialize_data(data_points)
     slope, intercept = regression.fit()
@@ -116,7 +116,7 @@ for i in range(ITERATIONS):
     print(f"In Run {i+1}: Mean Squared Error (MSE): {mse}")
     print(f"In Run {i+1}: Accuracy: {accuracy_percentage:.5f}%")
     print()
-    with open("LinReg/CKKSLinRegResults.txt", "a") as f:
+    with open("LinReg/CKKSLinRegResults2.txt", "a") as f:
         f.write(f"In Run {i+1}: Mean Squared Error (MSE): {mse}\n")
         f.write(f"In Run {i+1}: Accuracy: {accuracy_percentage:.5f}%\n\n")
 
@@ -125,7 +125,7 @@ average_accuracy = accuracy_sum / ITERATIONS
 
 print(f"Average Mean Squared Error (MSE): {average_mse}")
 print(f"Average Accuracy: {average_accuracy:.5f}%")
-with open("LinReg/CKKSLinRegResults.txt", "a") as f:
+with open("LinReg/CKKSLinRegResults2.txt", "a") as f:
     f.write(f"Average Mean Squared Error (MSE): {average_mse}\n")
     f.write(f"Average Accuracy: {average_accuracy:.5f}%\n\n")
 end = time.time()

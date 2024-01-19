@@ -1,0 +1,842 @@
+Repetition 1:
+Plain Accuracy: 0.8055062294006348
+Encrypted Accuracy: 0.8030639431616341
+Difference between plain and encrypted accuracies: 0.002442300319671631
+TPR for protected group: 0.7880916030534351
+FPR for protected group: 0.18328840970350405
+Equalized Odds for protected group: 0.001134290602527609
+Predictive Rate Parity for protected group: 0.8083307234575634
+Demographic Parity for protected group: 3193
+Accuracy Parity for protected group: 0.8025400665255519
+Matthews Correlation Coefficient for protected group: 0.6051345379111808
+Confusion Matrix:
+[[2727  612]
+ [ 694 2581]]
+
+Repetition 2:
+Plain Accuracy: 0.7944049835205078
+Encrypted Accuracy: 0.7970692717584369
+Difference between plain and encrypted accuracies: -0.0026642680168151855
+TPR for protected group: 0.8069093152375078
+FPR for protected group: 0.20581257413997628
+Equalized Odds for protected group: 0.0012873331535528626
+Predictive Rate Parity for protected group: 0.7903323262839879
+Demographic Parity for protected group: 3310
+Accuracy Parity for protected group: 0.8004233444209253
+Matthews Correlation Coefficient for protected group: 0.6009808663477094
+Confusion Matrix:
+[[2678  694]
+ [ 626 2616]]
+
+Repetition 3:
+Plain Accuracy: 0.80817049741745
+Encrypted Accuracy: 0.7675399644760214
+Difference between plain and encrypted accuracies: 0.0406305193901062
+TPR for protected group: 0.9631846752469321
+FPR for protected group: 0.4271310724106325
+Equalized Odds for protected group: 0.007769925222316925
+Predictive Rate Parity for protected group: 0.6971403812824957
+Demographic Parity for protected group: 4616
+Accuracy Parity for protected group: 0.7700332627759299
+Matthews Correlation Coefficient for protected group: 0.5836988231938194
+Confusion Matrix:
+[[1875 1398]
+ [ 123 3218]]
+
+Repetition 4:
+Plain Accuracy: 0.8043960928916931
+Encrypted Accuracy: 0.7353463587921847
+Difference between plain and encrypted accuracies: 0.06904971599578857
+TPR for protected group: 0.5405164737310775
+FPR for protected group: 0.07211093990755008
+Equalized Odds for protected group: 0.0003490489709380792
+Predictive Rate Parity for protected group: 0.8861313868613139
+Demographic Parity for protected group: 2055
+Accuracy Parity for protected group: 0.7305715149682491
+Matthews Correlation Coefficient for protected group: 0.5059867730183195
+Confusion Matrix:
+[[3011  234]
+ [1548 1821]]
+
+Repetition 5:
+Plain Accuracy: 0.8043960928916931
+Encrypted Accuracy: 0.7928507992895204
+Difference between plain and encrypted accuracies: 0.011545300483703613
+TPR for protected group: 0.7432844932844933
+FPR for protected group: 0.16297183942480528
+Equalized Odds for protected group: 0.0008830299058838803
+Predictive Rate Parity for protected group: 0.8173883853642162
+Demographic Parity for protected group: 2979
+Accuracy Parity for protected group: 0.7905957060780163
+Matthews Correlation Coefficient for protected group: 0.5831626409625323
+Confusion Matrix:
+[[2794  544]
+ [ 841 2435]]
+
+
+Average Metrics till run number:5
+Average Plain Accuracy: 0.8033747673034668
+Average Encrypted Accuracy: 0.7791740674955595
+Average Difference between plain and encrypted accuracies: 0.024200713261961937
+Average TPR for protected group: 0.7683973121106892
+Average FPR for protected group: 0.21026296711729361
+Average Equalized Odds for protected group: 0.002284725571043871
+Repetition 6:
+Plain Accuracy: 0.7995115518569946
+Encrypted Accuracy: 0.7428952042628775
+Difference between plain and encrypted accuracies: 0.056616365909576416
+TPR for protected group: 0.552471018913972
+FPR for protected group: 0.07314148681055156
+Equalized Odds for protected group: 0.00037645742133526184
+Predictive Rate Parity for protected group: 0.8812652068126521
+Demographic Parity for protected group: 2055
+Accuracy Parity for protected group: 0.7413063199274267
+Matthews Correlation Coefficient for protected group: 0.5178583385513514
+Confusion Matrix:
+[[3092  244]
+ [1467 1811]]
+
+Repetition 7:
+Plain Accuracy: 0.797735333442688
+Encrypted Accuracy: 0.7746447602131439
+Difference between plain and encrypted accuracies: 0.023090600967407227
+TPR for protected group: 0.9401840490797546
+FPR for protected group: 0.3849135360763268
+Equalized Odds for protected group: 0.004798321761524191
+Predictive Rate Parity for protected group: 0.7036271808999082
+Demographic Parity for protected group: 4356
+Accuracy Parity for protected group: 0.7753250680374962
+Matthews Correlation Coefficient for protected group: 0.5854489564441173
+Confusion Matrix:
+[[2063 1291]
+ [ 195 3065]]
+
+Repetition 8:
+Plain Accuracy: 0.8077264428138733
+Encrypted Accuracy: 0.7821936056838366
+Difference between plain and encrypted accuracies: 0.025532841682434082
+TPR for protected group: 0.7279411764705882
+FPR for protected group: 0.15805849408836342
+Equalized Odds for protected group: 0.000786344609567987
+Predictive Rate Parity for protected group: 0.8297016426416359
+Demographic Parity for protected group: 2983
+Accuracy Parity for protected group: 0.7833383731478681
+Matthews Correlation Coefficient for protected group: 0.5724111745400136
+Confusion Matrix:
+[[2706  508]
+ [ 925 2475]]
+
+Repetition 9:
+Plain Accuracy: 0.8108348250389099
+Encrypted Accuracy: 0.6654085257548845
+Difference between plain and encrypted accuracies: 0.14542627334594727
+TPR for protected group: 0.349908480780964
+FPR for protected group: 0.023681055155875298
+Equalized Odds for protected group: 0.00016417223628492685
+Predictive Rate Parity for protected group: 0.935562805872757
+Demographic Parity for protected group: 1226
+Accuracy Parity for protected group: 0.6658602963410947
+Matthews Correlation Coefficient for protected group: 0.4197386254231466
+Confusion Matrix:
+[[3257   79]
+ [2131 1147]]
+
+Repetition 10:
+Plain Accuracy: 0.8046181201934814
+Encrypted Accuracy: 0.7060390763765542
+Difference between plain and encrypted accuracies: 0.0985790491104126
+TPR for protected group: 0.46302921884317233
+FPR for protected group: 0.04447852760736196
+Equalized Odds for protected group: 0.0002570295428399398
+Predictive Rate Parity for protected group: 0.914605418138987
+Demographic Parity for protected group: 1698
+Accuracy Parity for protected group: 0.7057756274569096
+Matthews Correlation Coefficient for protected group: 0.4790309926802059
+Confusion Matrix:
+[[3115  145]
+ [1801 1553]]
+
+
+Average Metrics till run number:10
+Average Plain Accuracy: 0.8037300109863281
+Average Encrypted Accuracy: 0.7567051509769095
+Average Difference between plain and encrypted accuracies: 0.04702486842870712
+Average TPR for protected group: 0.6875520504641897
+Average FPR for protected group: 0.17355879353249473
+Average Equalized Odds for protected group: 0.001780595342677166
+Repetition 11:
+Plain Accuracy: 0.8008437156677246
+Encrypted Accuracy: 0.7904085257548845
+Difference between plain and encrypted accuracies: 0.010435163974761963
+TPR for protected group: 0.9130566495001514
+FPR for protected group: 0.33383640205252035
+Equalized Odds for protected group: 0.0031712929594981485
+Predictive Rate Parity for protected group: 0.7315533980582525
+Demographic Parity for protected group: 4120
+Accuracy Parity for protected group: 0.7893861505896583
+Matthews Correlation Coefficient for protected group: 0.5975584365944724
+Confusion Matrix:
+[[2207 1106]
+ [ 287 3014]]
+
+Repetition 12:
+Plain Accuracy: 0.8077264428138733
+Encrypted Accuracy: 0.7597690941385435
+Difference between plain and encrypted accuracies: 0.04795736074447632
+TPR for protected group: 0.6131736526946108
+FPR for protected group: 0.09590714722052535
+Equalized Odds for protected group: 0.00047436747914450793
+Predictive Rate Parity for protected group: 0.8670618120237087
+Demographic Parity for protected group: 2362
+Accuracy Parity for protected group: 0.7571817357121258
+Matthews Correlation Coefficient for protected group: 0.5397471450616504
+Confusion Matrix:
+[[2960  314]
+ [1292 2048]]
+
+Repetition 13:
+Plain Accuracy: 0.7995115518569946
+Encrypted Accuracy: 0.7007104795737122
+Difference between plain and encrypted accuracies: 0.09880107641220093
+TPR for protected group: 0.45253260539884743
+FPR for protected group: 0.04672897196261682
+Equalized Odds for protected group: 0.0002506477446658817
+Predictive Rate Parity for protected group: 0.9058894960534305
+Demographic Parity for protected group: 1647
+Accuracy Parity for protected group: 0.703658905352283
+Matthews Correlation Coefficient for protected group: 0.46919595678037673
+Confusion Matrix:
+[[3162  155]
+ [1805 1492]]
+
+Repetition 14:
+Plain Accuracy: 0.7972912788391113
+Encrypted Accuracy: 0.7957371225577264
+Difference between plain and encrypted accuracies: 0.0015541315078735352
+TPR for protected group: 0.8852410529429163
+FPR for protected group: 0.29539127745128363
+Equalized Odds for protected group: 0.0022763554886938986
+Predictive Rate Parity for protected group: 0.7581053698074974
+Demographic Parity for protected group: 3948
+Accuracy Parity for protected group: 0.796945872391896
+Matthews Correlation Coefficient for protected group: 0.6011020534776518
+Confusion Matrix:
+[[2278  955]
+ [ 388 2993]]
+
+Repetition 15:
+Plain Accuracy: 0.8028419017791748
+Encrypted Accuracy: 0.747113676731794
+Difference between plain and encrypted accuracies: 0.05572819709777832
+TPR for protected group: 0.9683698296836983
+FPR for protected group: 0.4672279013830427
+Equalized Odds for protected group: 0.009225348847990358
+Predictive Rate Parity for protected group: 0.6720135078092022
+Demographic Parity for protected group: 4738
+Accuracy Parity for protected group: 0.7493196250377986
+Matthews Correlation Coefficient for protected group: 0.5558707492280393
+Confusion Matrix:
+[[1772 1554]
+ [ 104 3184]]
+
+
+Average Metrics till run number:15
+Average Plain Accuracy: 0.8030344247817993
+Average Encrypted Accuracy: 0.7573860272350503
+Average Difference between plain and encrypted accuracies: 0.04564831033349037
+Average TPR for protected group: 0.7138596196574747
+Average FPR for protected group: 0.19831197569299575
+Average Equalized Odds for protected group: 0.002213597729784297
+Repetition 16:
+Plain Accuracy: 0.7979573607444763
+Encrypted Accuracy: 0.7102575488454707
+Difference between plain and encrypted accuracies: 0.08769983053207397
+TPR for protected group: 0.9814925373134329
+FPR for protected group: 0.5664828431372549
+Equalized Odds for protected group: 0.015583824672493222
+Predictive Rate Parity for protected group: 0.6400622931672182
+Demographic Parity for protected group: 5137
+Accuracy Parity for protected group: 0.711067432718476
+Matthews Correlation Coefficient for protected group: 0.49820799146246225
+Confusion Matrix:
+[[1415 1849]
+ [  62 3288]]
+
+Repetition 17:
+Plain Accuracy: 0.7895204424858093
+Encrypted Accuracy: 0.7890763765541741
+Difference between plain and encrypted accuracies: 0.00044405460357666016
+TPR for protected group: 0.859504132231405
+FPR for protected group: 0.28025097101882285
+Equalized Odds for protected group: 0.0018690581025465917
+Predictive Rate Parity for protected group: 0.7495995728777363
+Demographic Parity for protected group: 3746
+Accuracy Parity for protected group: 0.7887813728454793
+Matthews Correlation Coefficient for protected group: 0.5843827340922001
+Confusion Matrix:
+[[2409  938]
+ [ 459 2808]]
+
+Repetition 18:
+Plain Accuracy: 0.7972912788391113
+Encrypted Accuracy: 0.7859680284191829
+Difference between plain and encrypted accuracies: 0.011323273181915283
+TPR for protected group: 0.9265970515970516
+FPR for protected group: 0.35288862418106015
+Equalized Odds for protected group: 0.0038620022247795385
+Predictive Rate Parity for protected group: 0.7179914326511185
+Demographic Parity for protected group: 4202
+Accuracy Parity for protected group: 0.784699123072271
+Matthews Correlation Coefficient for protected group: 0.5958776518378099
+Confusion Matrix:
+[[2173 1185]
+ [ 239 3017]]
+
+Repetition 19:
+Plain Accuracy: 0.8048401474952698
+Encrypted Accuracy: 0.8035079928952042
+Difference between plain and encrypted accuracies: 0.0013321638107299805
+TPR for protected group: 0.8607042692427548
+FPR for protected group: 0.2575624082232012
+Equalized Odds for protected group: 0.001921812431941608
+Predictive Rate Parity for protected group: 0.7589997251992305
+Demographic Parity for protected group: 3639
+Accuracy Parity for protected group: 0.7998185666767463
+Matthews Correlation Coefficient for protected group: 0.6059382600950823
+Confusion Matrix:
+[[2528  877]
+ [ 447 2762]]
+
+Repetition 20:
+Plain Accuracy: 0.8055062294006348
+Encrypted Accuracy: 0.7901865008880995
+Difference between plain and encrypted accuracies: 0.01531970500946045
+TPR for protected group: 0.7107262230325129
+FPR for protected group: 0.13812819741197713
+Equalized Odds for protected group: 0.0007460042208721073
+Predictive Rate Parity for protected group: 0.8359542530378842
+Demographic Parity for protected group: 2798
+Accuracy Parity for protected group: 0.7866646507408528
+Matthews Correlation Coefficient for protected group: 0.5794966369017694
+Confusion Matrix:
+[[2864  459]
+ [ 952 2339]]
+
+
+Average Metrics till run number:20
+Average Plain Accuracy: 0.8020315170288086
+Average Encrypted Accuracy: 0.7619893428063943
+Average Difference between plain and encrypted accuracies: 0.04004218429327011
+Average TPR for protected group: 0.752345925413964
+Average FPR for protected group: 0.22849963396836262
+Average Equalized Odds for protected group: 0.002859333379969876
+Repetition 21:
+Plain Accuracy: 0.8083925247192383
+Encrypted Accuracy: 0.7859680284191829
+Difference between plain and encrypted accuracies: 0.022424519062042236
+TPR for protected group: 0.9331510179276815
+FPR for protected group: 0.3511886849232621
+Equalized Odds for protected group: 0.004223680392137985
+Predictive Rate Parity for protected group: 0.7246342614440774
+Demographic Parity for protected group: 4238
+Accuracy Parity for protected group: 0.7902933172059268
+Matthews Correlation Coefficient for protected group: 0.6064853206474307
+Confusion Matrix:
+[[2156 1167]
+ [ 220 3071]]
+
+Repetition 22:
+Plain Accuracy: 0.8077264428138733
+Encrypted Accuracy: 0.7924067495559503
+Difference between plain and encrypted accuracies: 0.01531970500946045
+TPR for protected group: 0.7625
+FPR for protected group: 0.17701290719114934
+Equalized Odds for protected group: 0.0009546016494264564
+Predictive Rate Parity for protected group: 0.8164435946462715
+Demographic Parity for protected group: 3138
+Accuracy Parity for protected group: 0.7922588448745086
+Matthews Correlation Coefficient for protected group: 0.5861778246575216
+Confusion Matrix:
+[[2678  576]
+ [ 798 2562]]
+
+Repetition 23:
+Plain Accuracy: 0.8101687431335449
+Encrypted Accuracy: 0.8015097690941385
+Difference between plain and encrypted accuracies: 0.008658945560455322
+TPR for protected group: 0.9021968101113451
+FPR for protected group: 0.30659374050440596
+Equalized Odds for protected group: 0.002768305396348755
+Predictive Rate Parity for protected group: 0.7481906663339156
+Demographic Parity for protected group: 4007
+Accuracy Parity for protected group: 0.7983066223162988
+Matthews Correlation Coefficient for protected group: 0.6094047743113565
+Confusion Matrix:
+[[2282 1009]
+ [ 325 2998]]
+
+Repetition 24:
+Plain Accuracy: 0.7959591746330261
+Encrypted Accuracy: 0.797291296625222
+Difference between plain and encrypted accuracies: -0.001332104206085205
+TPR for protected group: 0.8731997495303695
+FPR for protected group: 0.2672514619883041
+Equalized Odds for protected group: 0.002151410218928553
+Predictive Rate Parity for protected group: 0.753173102889549
+Demographic Parity for protected group: 3703
+Accuracy Parity for protected group: 0.80057453885697
+Matthews Correlation Coefficient for protected group: 0.6099835352595763
+Confusion Matrix:
+[[2506  914]
+ [ 405 2789]]
+
+Repetition 25:
+Plain Accuracy: 0.8121669888496399
+Encrypted Accuracy: 0.8115008880994672
+Difference between plain and encrypted accuracies: 0.0006660819053649902
+TPR for protected group: 0.8517397881996974
+FPR for protected group: 0.22181928074947113
+Equalized Odds for protected group: 0.001735228214872416
+Predictive Rate Parity for protected group: 0.7931811777965624
+Demographic Parity for protected group: 3549
+Accuracy Parity for protected group: 0.8149380102812217
+Matthews Correlation Coefficient for protected group: 0.6316138195514522
+Confusion Matrix:
+[[2575  734]
+ [ 490 2815]]
+
+
+Average Metrics till run number:25
+Average Plain Accuracy: 0.8030017614364624
+Average Encrypted Accuracy: 0.7691385435168737
+Average Difference between plain and encrypted accuracies: 0.03386323153972626
+Average TPR for protected group: 0.7747882349619349
+Average FPR for protected group: 0.23575435018895377
+Average Equalized Odds for protected group: 0.0027607957388444677
+Repetition 26:
+Plain Accuracy: 0.8097246885299683
+Encrypted Accuracy: 0.7824156305506217
+Difference between plain and encrypted accuracies: 0.027309060096740723
+TPR for protected group: 0.9377278250303767
+FPR for protected group: 0.3660445514750151
+Equalized Odds for protected group: 0.004553453293546545
+Predictive Rate Parity for protected group: 0.7174064606088775
+Demographic Parity for protected group: 4303
+Accuracy Parity for protected group: 0.7851527063804052
+Matthews Correlation Coefficient for protected group: 0.5995143284742765
+Confusion Matrix:
+[[2106 1216]
+ [ 205 3087]]
+
+Repetition 27:
+Plain Accuracy: 0.8068383932113647
+Encrypted Accuracy: 0.7320159857904085
+Difference between plain and encrypted accuracies: 0.07482242584228516
+TPR for protected group: 0.5335932813437313
+FPR for protected group: 0.05853658536585366
+Equalized Odds for protected group: 0.00034302909538464865
+Predictive Rate Parity for protected group: 0.9025875190258752
+Demographic Parity for protected group: 1971
+Accuracy Parity for protected group: 0.7358633202298155
+Matthews Correlation Coefficient for protected group: 0.5193050064776068
+Confusion Matrix:
+[[3088  192]
+ [1555 1779]]
+
+Repetition 28:
+Plain Accuracy: 0.807504415512085
+Encrypted Accuracy: 0.7349023090586145
+Difference between plain and encrypted accuracies: 0.07260209321975708
+TPR for protected group: 0.971162511264644
+FPR for protected group: 0.4964992389649924
+Equalized Odds for protected group: 0.010014962037315259
+Predictive Rate Parity for protected group: 0.6646792763157895
+Demographic Parity for protected group: 4864
+Accuracy Parity for protected group: 0.7388872089507106
+Matthews Correlation Coefficient for protected group: 0.538015027102623
+Confusion Matrix:
+[[1654 1631]
+ [  96 3233]]
+
+Repetition 29:
+Plain Accuracy: 0.8021758198738098
+Encrypted Accuracy: 0.7788632326820604
+Difference between plain and encrypted accuracies: 0.02331256866455078
+TPR for protected group: 0.9437283872995913
+FPR for protected group: 0.37168657151179724
+Equalized Odds for protected group: 0.0052445750444181614
+Predictive Rate Parity for protected group: 0.7017297802711547
+Demographic Parity for protected group: 4278
+Accuracy Parity for protected group: 0.7800120955548836
+Matthews Correlation Coefficient for protected group: 0.5979841921324377
+Confusion Matrix:
+[[2157 1276]
+ [ 179 3002]]
+
+Repetition 30:
+Plain Accuracy: 0.8063943386077881
+Encrypted Accuracy: 0.8019538188277087
+Difference between plain and encrypted accuracies: 0.0044405460357666016
+TPR for protected group: 0.8991442542787286
+FPR for protected group: 0.28755236385397964
+Equalized Odds for protected group: 0.002717275852450628
+Predictive Rate Parity for protected group: 0.7537791442480144
+Demographic Parity for protected group: 3903
+Accuracy Parity for protected group: 0.8048079830662231
+Matthews Correlation Coefficient for protected group: 0.6217382035101792
+Confusion Matrix:
+[[2381  961]
+ [ 330 2942]]
+
+
+Average Metrics till run number:30
+Average Plain Accuracy: 0.8035894632339478
+Average Encrypted Accuracy: 0.7686204854943752
+Average Difference between plain and encrypted accuracies: 0.034968916326761246
+Average TPR for protected group: 0.7885020711088481
+Average FPR for protected group: 0.24913926886318277
+Average Equalized Odds for protected group: 0.003063106293140898
+Repetition 31:
+Plain Accuracy: 0.8119449615478516
+Encrypted Accuracy: 0.7457815275310835
+Difference between plain and encrypted accuracies: 0.06616342067718506
+TPR for protected group: 0.5628580042206813
+FPR for protected group: 0.06763724598119503
+Equalized Odds for protected group: 0.00038802731030566863
+Predictive Rate Parity for protected group: 0.8933014354066986
+Demographic Parity for protected group: 2090
+Accuracy Parity for protected group: 0.7470517084971273
+Matthews Correlation Coefficient for protected group: 0.5325944162105827
+Confusion Matrix:
+[[3074  223]
+ [1450 1867]]
+
+Repetition 32:
+Plain Accuracy: 0.7981793880462646
+Encrypted Accuracy: 0.7984014209591475
+Difference between plain and encrypted accuracies: -0.00022202730178833008
+TPR for protected group: 0.856065178032589
+FPR for protected group: 0.25666666666666665
+Equalized Odds for protected group: 0.00179147078046116
+Predictive Rate Parity for protected group: 0.7700868621064061
+Demographic Parity for protected group: 3684
+Accuracy Parity for protected group: 0.7998185666767463
+Matthews Correlation Coefficient for protected group: 0.6033304728008897
+Confusion Matrix:
+[[2453  847]
+ [ 477 2837]]
+
+Repetition 33:
+Plain Accuracy: 0.800399661064148
+Encrypted Accuracy: 0.7715364120781527
+Difference between plain and encrypted accuracies: 0.028863251209259033
+TPR for protected group: 0.9350571256764882
+FPR for protected group: 0.3895985401459854
+Equalized Odds for protected group: 0.0043103089840144364
+Predictive Rate Parity for protected group: 0.7082669095877933
+Demographic Parity for protected group: 4391
+Accuracy Parity for protected group: 0.773661929241004
+Matthews Correlation Coefficient for protected group: 0.5773475921633605
+Confusion Matrix:
+[[2007 1281]
+ [ 216 3110]]
+
+Repetition 34:
+Plain Accuracy: 0.8095026612281799
+Encrypted Accuracy: 0.6272202486678508
+Difference between plain and encrypted accuracies: 0.18228238821029663
+TPR for protected group: 0.995398773006135
+FPR for protected group: 0.7400119260584377
+Equalized Odds for protected group: 0.062230319301946495
+Predictive Rate Parity for protected group: 0.5666142832198359
+Demographic Parity for protected group: 5727
+Accuracy Parity for protected group: 0.6224674931962504
+Matthews Correlation Coefficient for protected group: 0.37468253851743216
+Confusion Matrix:
+[[ 872 2482]
+ [  15 3245]]
+
+Repetition 35:
+Plain Accuracy: 0.7968472242355347
+Encrypted Accuracy: 0.7939609236234458
+Difference between plain and encrypted accuracies: 0.0028862953186035156
+TPR for protected group: 0.883338409990862
+FPR for protected group: 0.3062143500450315
+Equalized Odds for protected group: 0.002301059518888128
+Predictive Rate Parity for protected group: 0.7397959183673469
+Demographic Parity for protected group: 3920
+Accuracy Parity for protected group: 0.7878742062292108
+Matthews Correlation Coefficient for protected group: 0.5872866228740089
+Confusion Matrix:
+[[2311 1020]
+ [ 383 2900]]
+
+
+Average Metrics till run number:35
+Average Plain Accuracy: 0.8035587668418884
+Average Encrypted Accuracy: 0.7655861456483125
+Average Difference between plain and encrypted accuracies: 0.037972591817379
+Average TPR for protected group: 0.7967937035483484
+Average FPR for protected group: 0.26383733699408
+Average Equalized Odds for protected group: 0.0046546964197097945
+Repetition 36:
+Plain Accuracy: 0.8015097975730896
+Encrypted Accuracy: 0.7793072824156305
+Difference between plain and encrypted accuracies: 0.022202491760253906
+TPR for protected group: 0.930057280675309
+FPR for protected group: 0.3745829542007886
+Equalized Odds for protected group: 0.003992860739112821
+Predictive Rate Parity for protected group: 0.7141203703703703
+Demographic Parity for protected group: 4320
+Accuracy Parity for protected group: 0.7781977623223465
+Matthews Correlation Coefficient for protected group: 0.5835225182031336
+Confusion Matrix:
+[[2062 1235]
+ [ 232 3085]]
+
+Repetition 37:
+Plain Accuracy: 0.8026198744773865
+Encrypted Accuracy: 0.8017317939609236
+Difference between plain and encrypted accuracies: 0.0008881092071533203
+TPR for protected group: 0.8873584328129782
+FPR for protected group: 0.27606812070510905
+Equalized Odds for protected group: 0.002405499707506503
+Predictive Rate Parity for protected group: 0.7583049960763798
+Demographic Parity for protected group: 3823
+Accuracy Parity for protected group: 0.8046567886301784
+Matthews Correlation Coefficient for protected group: 0.6188250266246336
+Confusion Matrix:
+[[2423  924]
+ [ 368 2899]]
+
+Repetition 38:
+Plain Accuracy: 0.8052842020988464
+Encrypted Accuracy: 0.7713143872113677
+Difference between plain and encrypted accuracies: 0.03396981954574585
+TPR for protected group: 0.9524984577421345
+FPR for protected group: 0.3994661921708185
+Equalized Odds for protected group: 0.006147035170277652
+Predictive Rate Parity for protected group: 0.6962795941375423
+Demographic Parity for protected group: 4435
+Accuracy Parity for protected group: 0.773057151496825
+Matthews Correlation Coefficient for protected group: 0.5882004211435848
+Confusion Matrix:
+[[2025 1347]
+ [ 154 3088]]
+
+Repetition 39:
+Plain Accuracy: 0.8037300109863281
+Encrypted Accuracy: 0.6938277087033747
+Difference between plain and encrypted accuracies: 0.10990232229232788
+TPR for protected group: 0.4287865100873231
+FPR for protected group: 0.03735195870027331
+Equalized Odds for protected group: 0.00022598292654555104
+Predictive Rate Parity for protected group: 0.9204912734324499
+Demographic Parity for protected group: 1547
+Accuracy Parity for protected group: 0.6945872391895979
+Matthews Correlation Coefficient for protected group: 0.4623478599276864
+Confusion Matrix:
+[[3170  123]
+ [1897 1424]]
+
+Repetition 40:
+Plain Accuracy: 0.8010657429695129
+Encrypted Accuracy: 0.6809502664298401
+Difference between plain and encrypted accuracies: 0.12011545896530151
+TPR for protected group: 0.3883076923076923
+FPR for protected group: 0.026159334126040427
+Equalized Odds for protected group: 0.0001952876562417308
+Predictive Rate Parity for protected group: 0.9348148148148148
+Demographic Parity for protected group: 1350
+Accuracy Parity for protected group: 0.6861203507710916
+Matthews Correlation Coefficient for protected group: 0.4491913351166425
+Confusion Matrix:
+[[3276   88]
+ [1988 1262]]
+
+
+Average Metrics till run number:40
+Average Plain Accuracy: 0.8034690618515015
+Average Encrypted Accuracy: 0.763066163410302
+Average Difference between plain and encrypted accuracies: 0.04040297493338585
+Average TPR for protected group: 0.7868696999454408
+Average FPR for protected group: 0.2586983838673957
+Average Equalized Odds for protected group: 0.004397026022238177
+Repetition 41:
+Plain Accuracy: 0.8050621747970581
+Encrypted Accuracy: 0.8046181172291297
+Difference between plain and encrypted accuracies: 0.00044405460357666016
+TPR for protected group: 0.8933856840833585
+FPR for protected group: 0.283075991522858
+Equalized Odds for protected group: 0.002524448662289704
+Predictive Rate Parity for protected group: 0.759825327510917
+Demographic Parity for protected group: 3893
+Accuracy Parity for protected group: 0.8052615663743574
+Matthews Correlation Coefficient for protected group: 0.6201227605516516
+Confusion Matrix:
+[[2368  935]
+ [ 353 2958]]
+
+Repetition 42:
+Plain Accuracy: 0.8137211203575134
+Encrypted Accuracy: 0.8130550621669627
+Difference between plain and encrypted accuracies: 0.0006660819053649902
+TPR for protected group: 0.8319226118500604
+FPR for protected group: 0.20598911070780399
+Equalized Odds for protected group: 0.001494028230184582
+Predictive Rate Parity for protected group: 0.8016312263326536
+Demographic Parity for protected group: 3433
+Accuracy Parity for protected group: 0.8129724826126399
+Matthews Correlation Coefficient for protected group: 0.6263882972237517
+Confusion Matrix:
+[[2625  681]
+ [ 556 2752]]
+
+Repetition 43:
+Plain Accuracy: 0.8055062294006348
+Encrypted Accuracy: 0.7952930728241563
+Difference between plain and encrypted accuracies: 0.010213136672973633
+TPR for protected group: 0.7963470319634703
+FPR for protected group: 0.19675578251727247
+Equalized Odds for protected group: 0.0011889390491487224
+Predictive Rate Parity for protected group: 0.799755426475084
+Demographic Parity for protected group: 3271
+Accuracy Parity for protected group: 0.7998185666767463
+Matthews Correlation Coefficient for protected group: 0.5996135110442363
+Confusion Matrix:
+[[2674  655]
+ [ 669 2616]]
+
+Repetition 44:
+Plain Accuracy: 0.7948490381240845
+Encrypted Accuracy: 0.7617673179396093
+Difference between plain and encrypted accuracies: 0.03308171033859253
+TPR for protected group: 0.9647369967675581
+FPR for protected group: 0.4456555590158829
+Equalized Odds for protected group: 0.007975357287746907
+Predictive Rate Parity for protected group: 0.6964361476453118
+Demographic Parity for protected group: 4714
+Accuracy Parity for protected group: 0.7654974296945872
+Matthews Correlation Coefficient for protected group: 0.5733436892620319
+Confusion Matrix:
+[[1780 1431]
+ [ 120 3283]]
+
+Repetition 45:
+Plain Accuracy: 0.8059502840042114
+Encrypted Accuracy: 0.7779751332149201
+Difference between plain and encrypted accuracies: 0.027975142002105713
+TPR for protected group: 0.9471744471744472
+FPR for protected group: 0.3764145324597975
+Equalized Odds for protected group: 0.005476669105477379
+Predictive Rate Parity for protected group: 0.7092916283348666
+Demographic Parity for protected group: 4348
+Accuracy Parity for protected group: 0.7828847898397339
+Matthews Correlation Coefficient for protected group: 0.6012585815122764
+Confusion Matrix:
+[[2094 1264]
+ [ 172 3084]]
+
+
+Average Metrics till run number:45
+Average Plain Accuracy: 0.8036412000656128
+Average Encrypted Accuracy: 0.7661190053285968
+Average Difference between plain and encrypted accuracies: 0.03752220422029495
+Average TPR for protected group: 0.7979634393257006
+Average FPR for protected group: 0.2634628073537654
+Average Equalized Odds for protected group: 0.00432312184943054
+Repetition 46:
+Plain Accuracy: 0.7979573607444763
+Encrypted Accuracy: 0.7508880994671403
+Difference between plain and encrypted accuracies: 0.047069251537323
+TPR for protected group: 0.5933671945025396
+FPR for protected group: 0.07529843893480258
+Equalized Odds for protected group: 0.00043578884033868654
+Predictive Rate Parity for protected group: 0.8897849462365591
+Demographic Parity for protected group: 2232
+Accuracy Parity for protected group: 0.757030541276081
+Matthews Correlation Coefficient for protected group: 0.5477804679675536
+Confusion Matrix:
+[[3021  246]
+ [1361 1986]]
+
+Repetition 47:
+Plain Accuracy: 0.8072823882102966
+Encrypted Accuracy: 0.8017317939609236
+Difference between plain and encrypted accuracies: 0.0055506229400634766
+TPR for protected group: 0.8960024045686805
+FPR for protected group: 0.28871311226041985
+Equalized Odds for protected group: 0.002582913606262071
+Predictive Rate Parity for protected group: 0.7585241730279898
+Demographic Parity for protected group: 3930
+Accuracy Parity for protected group: 0.8042032053220441
+Matthews Correlation Coefficient for protected group: 0.618349971734762
+Confusion Matrix:
+[[2338  949]
+ [ 346 2981]]
+
+Repetition 48:
+Plain Accuracy: 0.8019537925720215
+Encrypted Accuracy: 0.7637655417406749
+Difference between plain and encrypted accuracies: 0.038188278675079346
+TPR for protected group: 0.9617110379898295
+FPR for protected group: 0.4396209110363803
+Equalized Odds for protected group: 0.0074573377652109975
+Predictive Rate Parity for protected group: 0.6909520739307974
+Demographic Parity for protected group: 4653
+Accuracy Parity for protected group: 0.763229513153916
+Matthews Correlation Coefficient for protected group: 0.5715426153159484
+Confusion Matrix:
+[[1833 1438]
+ [ 128 3215]]
+
+Repetition 49:
+Plain Accuracy: 0.8015097975730896
+Encrypted Accuracy: 0.783303730017762
+Difference between plain and encrypted accuracies: 0.01820605993270874
+TPR for protected group: 0.700510663863022
+FPR for protected group: 0.1400304414003044
+Equalized Odds for protected group: 0.0007021251932575508
+Predictive Rate Parity for protected group: 0.835243553008596
+Demographic Parity for protected group: 2792
+Accuracy Parity for protected group: 0.779709706682794
+Matthews Correlation Coefficient for protected group: 0.5673901976224778
+Confusion Matrix:
+[[2825  460]
+ [ 997 2332]]
+
+Repetition 50:
+Plain Accuracy: 0.8039520382881165
+Encrypted Accuracy: 0.7311278863232682
+Difference between plain and encrypted accuracies: 0.07282418012619019
+TPR for protected group: 0.5241315708576698
+FPR for protected group: 0.07051472775959536
+Equalized Odds for protected group: 0.00033847168421326376
+Predictive Rate Parity for protected group: 0.8779608650875386
+Demographic Parity for protected group: 1942
+Accuracy Parity for protected group: 0.730117931660115
+Matthews Correlation Coefficient for protected group: 0.49795423449343423
+Confusion Matrix:
+[[3124  237]
+ [1548 1705]]
+
+
+Average Metrics till run number:50
+Average Plain Accuracy: 0.8035300970077515
+Average Encrypted Accuracy: 0.7661234458259326
+Average Difference between plain and encrypted accuracies: 0.03740675374865532
+Average TPR for protected group: 0.7916815528287654
+Average FPR for protected group: 0.25740007924621894
+Average Equalized Odds for protected group: 0.004121142406273139
+
+Average Metrics:
+Average Plain Accuracy: 0.8035300970077515
+Average Encrypted Accuracy: 0.7661234458259326
+Average Difference between plain and encrypted accuracies: 0.03740675374865532
+Average TPR for protected group: 0.7916815528287654
+Average FPR for protected group: 0.25740007924621894
+Average Equalized Odds for protected group: 0.004121142406273139
+Average Predictive Rate Parity for protected group: 0.7799720625398165
+Average Demographic Parity for protected group: 3465.14
+Average Accuracy Parity for protected group: 0.7668521318415483
+Average Matthews Correlation Coefficient for protected group: 0.564042490140769

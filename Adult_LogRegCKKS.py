@@ -20,9 +20,13 @@ diff_accuracy_list = []
 tpr_list = []
 fpr_list = []
 equalized_odds_list = []
+predictive_rate_parity_list = []
+demographic_parity_list = []
+accuracy_parity_list = []
+matthews_correlation_coefficient_list = []
 
 # Define the number of repetitions for the experiment here
-ITERATIONS = 10
+ITERATIONS = 50
 
 for repetition in range(ITERATIONS):
     # separate train and test data, alloting 30% of the data for testing
@@ -299,41 +303,43 @@ for repetition in range(ITERATIONS):
         fpr_protected = fp_protected / (fp_protected + tn_protected) if (fp_protected + tn_protected) > 0 else 0
 
         tnr_protected = tn_protected / (tn_protected + fp_protected) if (tn_protected + fp_protected) > 0 else 0
-        equalized_odds_protected = tpr_protected - fpr_protected 
+        fnr_protected = fn_protected / (fn_protected + tp_protected) if (fn_protected + tp_protected) > 0 else 0
+
+        predictive_rate_parity = tp_protected / (tp_protected+fp_protected)
+        demographic_parity = (tp_protected+fp_protected) 
+        proportional_parity = (tp_protected+fp_protected)/(tp_protected+fn_protected+fp_protected+tn_protected) 
+        accuracy_parity = (tp_protected+tn_protected)/(tp_protected+fn_protected+fp_protected+tn_protected)
+        matthews_correlation_coefficient = (tp_protected*tn_protected-fp_protected*fn_protected)/np.sqrt((tp_protected+fp_protected)*(tp_protected+fn_protected)*(tn_protected+fp_protected)*(tn_protected+fn_protected))
+        equalized_odds_protected = tpr_protected / (tpr_protected+fn_protected) 
         
-        return tpr_protected, fpr_protected, equalized_odds_protected
-
-    def calculate_demographic_parity(predictions, protected_group_indices):
-        positive_rate_protected = sum(predictions[protected_group_indices] == 1) / len(protected_group_indices)
-        positive_rate_unprotected = sum(predictions[~protected_group_indices] == 1) / len(~protected_group_indices)
-
-        return positive_rate_protected, positive_rate_unprotected
+        return tpr_protected, fpr_protected, equalized_odds_protected, predictive_rate_parity, demographic_parity, proportional_parity, accuracy_parity, matthews_correlation_coefficient
 
     # Get Predictions
     # predictions = get_predictions(eelr, enc_x_test)
-    tpr_protected, fpr_protected, equalized_odds_protected = calculate_metrics_from_confusion_matrix(confusion_matrix=conf_matrix)
+    tpr_protected, fpr_protected, equalized_odds_protected, predictive_rate_parity, demographic_parity, proportional_parity, accuracy_parity, matthews_correlation_coefficient = calculate_metrics_from_confusion_matrix(confusion_matrix=conf_matrix)
     print(f"True Positive Rate (TPR) for protected group: {tpr_protected}")
     print(f"False Positive Rate (FPR) for protected group: {fpr_protected}")
     print(f"Equalized Odds for protected group: {equalized_odds_protected}")
+    print(f"Predictive Rate Parity for protected group: {predictive_rate_parity}")
+    print(f"Demographic Parity for protected group: {demographic_parity}")
+    print(f"Proportional Parity for protected group: {proportional_parity}")
+    print(f"Accuracy Parity for protected group: {accuracy_parity}")
+    print(f"Matthews Correlation Coefficient for protected group: {matthews_correlation_coefficient}")
 
-    # still working on getting the other metrics to work
-    # demographic_parity = calculate_demographic_parity(predictions, custom_dataset.get_biased_column())
-    # print(f"Demographic Parity: {demographic_parity}")
-    # disparate_impact = calculate_disparate_impact(predictions, custom_dataset.get_biased_column())
-    # print(f"Disparate Impact: {disparate_impact}")
-    # accuracy_list.append(plain_accuracy)
-    
     plain_accuracy_list.append(plain_accuracy)
     encrypted_accuracy_list.append(encrypted_accuracy)
     diff_accuracy_list.append(diff_accuracy)
     tpr_list.append(tpr_protected)
     fpr_list.append(fpr_protected)
     equalized_odds_list.append(equalized_odds_protected)
+    predictive_rate_parity_list.append(predictive_rate_parity)
+    demographic_parity_list.append(demographic_parity)
+    accuracy_parity_list.append(accuracy_parity)
+    matthews_correlation_coefficient_list.append(matthews_correlation_coefficient)
+    
+    print("\nTHIS WAS RUN NUMBER: ", repetition + 1)
 
-
-    print("THIS IS RUN NUMBER: ", repetition + 1)
-
-    with open("CKKSAdultCorrected.txt", "a") as file:
+    with open("CKKSAdultMoreMetrics.txt", "a") as file:
         file.write(f"Repetition {repetition + 1}:\n")
         file.write(f"Plain Accuracy: {plain_accuracy}\n")
         file.write(f"Encrypted Accuracy: {encrypted_accuracy}\n")
@@ -341,19 +347,23 @@ for repetition in range(ITERATIONS):
         file.write(f"TPR for protected group: {tpr_protected}\n")
         file.write(f"FPR for protected group: {fpr_protected}\n")
         file.write(f"Equalized Odds for protected group: {equalized_odds_protected}\n")
+        file.write(f"Predictive Rate Parity for protected group: {predictive_rate_parity}\n")
+        file.write(f"Demographic Parity for protected group: {demographic_parity}\n")
+        file.write(f"Accuracy Parity for protected group: {accuracy_parity}\n")
+        file.write(f"Matthews Correlation Coefficient for protected group: {matthews_correlation_coefficient}\n")
         file.write(f"Confusion Matrix:\n{conf_matrix}\n\n")
 
         # In case there are a lot of ITERATIONS and you want to play it safe by saving average metrics every 5 runs 
-        # if repetition % 5 == 0:
-        #     file.write(f"\nAverage Metrics till run number:{repetition+1}\n")
-        #     file.write(f"Average Plain Accuracy: {np.mean(plain_accuracy_list)}\n")
-        #     file.write(f"Average Encrypted Accuracy: {np.mean(encrypted_accuracy_list)}\n")
-        #     file.write(f"Average Difference between plain and encrypted accuracies: {np.mean(diff_accuracy_list)}\n")
-        #     file.write(f"Average TPR for protected group: {np.mean(tpr_list)}\n")
-        #     file.write(f"Average FPR for protected group: {np.mean(fpr_list)}\n")
-        #     file.write(f"Average Equalized Odds for protected group: {np.mean(equalized_odds_list)}\n") 
+        if (repetition+1) % 5 == 0:
+            file.write(f"\nAverage Metrics till run number:{repetition+1}\n")
+            file.write(f"Average Plain Accuracy: {np.mean(plain_accuracy_list)}\n")
+            file.write(f"Average Encrypted Accuracy: {np.mean(encrypted_accuracy_list)}\n")
+            file.write(f"Average Difference between plain and encrypted accuracies: {np.mean(diff_accuracy_list)}\n")
+            file.write(f"Average TPR for protected group: {np.mean(tpr_list)}\n")
+            file.write(f"Average FPR for protected group: {np.mean(fpr_list)}\n")
+            file.write(f"Average Equalized Odds for protected group: {np.mean(equalized_odds_list)}\n") 
 
-with open("CKKSAdultCorrected.txt", "a") as file:
+with open("CKKSAdultMoreMetrics.txt", "a") as file:
     file.write("\nAverage Metrics:\n")
     file.write(f"Average Plain Accuracy: {np.mean(plain_accuracy_list)}\n")
     file.write(f"Average Encrypted Accuracy: {np.mean(encrypted_accuracy_list)}\n")
@@ -361,3 +371,8 @@ with open("CKKSAdultCorrected.txt", "a") as file:
     file.write(f"Average TPR for protected group: {np.mean(tpr_list)}\n")
     file.write(f"Average FPR for protected group: {np.mean(fpr_list)}\n")
     file.write(f"Average Equalized Odds for protected group: {np.mean(equalized_odds_list)}\n")
+    file.write(f"Average Predictive Rate Parity for protected group: {np.mean(predictive_rate_parity_list)}\n")
+    file.write(f"Average Demographic Parity for protected group: {np.mean(demographic_parity_list)}\n")
+    file.write(f"Average Accuracy Parity for protected group: {np.mean(accuracy_parity_list)}\n")
+    file.write(f"Average Matthews Correlation Coefficient for protected group: {np.mean(matthews_correlation_coefficient_list)}\n")
+    

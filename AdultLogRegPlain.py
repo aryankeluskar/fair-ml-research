@@ -13,9 +13,13 @@ accuracy_list = []
 tpr_list = []
 fpr_list = []
 equalized_odds_list = []
+predictive_rate_parity_list = []
+demographic_parity_list = []
+accuracy_parity_list = []
+matthews_correlation_coefficient_list = []
 
 # Define the number of repetitions for the experiment here
-ITERATIONS = 10
+ITERATIONS = 50
 
 for repetition in range(ITERATIONS):
     # separate train and test data, alloting 30% of the data for testing
@@ -165,35 +169,60 @@ for repetition in range(ITERATIONS):
 
         tpr_protected = tp_protected / (tp_protected + fn_protected) if (tp_protected + fn_protected) > 0 else 0
         fpr_protected = fp_protected / (fp_protected + tn_protected) if (fp_protected + tn_protected) > 0 else 0
+
         tnr_protected = tn_protected / (tn_protected + fp_protected) if (tn_protected + fp_protected) > 0 else 0
         fnr_protected = fn_protected / (fn_protected + tp_protected) if (fn_protected + tp_protected) > 0 else 0
 
-        equalized_odds_protected = tpr_protected - fpr_protected 
-        return tpr_protected, fpr_protected, equalized_odds_protected
+        predictive_rate_parity = tp_protected / (tp_protected+fp_protected)
+        demographic_parity = (tp_protected+fp_protected) / (tp_protected+fn_protected+fp_protected+tn_protected)
+        accuracy_parity = (tp_protected+tn_protected)/(tp_protected+fn_protected+fp_protected+tn_protected)
+        matthews_correlation_coefficient = (tp_protected*tn_protected-fp_protected*fn_protected)/np.sqrt((tp_protected+fp_protected)*(tp_protected+fn_protected)*(tn_protected+fp_protected)*(tn_protected+fn_protected))
+        equalized_odds_protected = tpr_protected / (tpr_protected+fn_protected) 
+        
+        return tpr_protected, fpr_protected, equalized_odds_protected, predictive_rate_parity, demographic_parity, accuracy_parity, matthews_correlation_coefficient
 
-    tpr_protected, fpr_protected, equalized_odds_protected = calculate_metrics_from_confusion_matrix(confusion_matrix=conf_matrix)
+    # Get Predictions
+    # predictions = get_predictions(eelr, enc_x_test)
+    tpr_protected, fpr_protected, equalized_odds_protected, predictive_rate_parity, demographic_parity, accuracy_parity, matthews_correlation_coefficient = calculate_metrics_from_confusion_matrix(confusion_matrix=conf_matrix)
     print(f"True Positive Rate (TPR) for protected group: {tpr_protected}")
     print(f"False Positive Rate (FPR) for protected group: {fpr_protected}")
     print(f"Equalized Odds for protected group: {equalized_odds_protected}")
+    print(f"Predictive Rate Parity for protected group: {predictive_rate_parity}")
+    print(f"Demographic Parity for protected group: {demographic_parity}")
+    print(f"Accuracy Parity for protected group: {accuracy_parity}")
+    print(f"Matthews Correlation Coefficient for protected group: {matthews_correlation_coefficient}")
 
     accuracy_list.append(plain_accuracy)
     tpr_list.append(tpr_protected)
     fpr_list.append(fpr_protected)
     equalized_odds_list.append(equalized_odds_protected)
-
-
-    with open("PlainAdultCorrected.txt", "a") as file:
+    predictive_rate_parity_list.append(predictive_rate_parity)
+    demographic_parity_list.append(demographic_parity)
+    accuracy_parity_list.append(accuracy_parity)
+    matthews_correlation_coefficient_list.append(matthews_correlation_coefficient)
+        
+    with open("PlainAdultMoreMetrics.txt", "a") as file:
         file.write(f"Repetition {repetition + 1}:\n")
         file.write(f"Accuracy: {plain_accuracy}\n")
         file.write(f"TPR for protected group: {tpr_protected}\n")
         file.write(f"FPR for protected group: {fpr_protected}\n")
         file.write(f"Equalized Odds for protected group: {equalized_odds_protected}\n")
+        file.write(f"Predictive Rate Parity for protected group: {predictive_rate_parity}\n")
+        file.write(f"Demographic Parity for protected group: {demographic_parity}\n")
+        file.write(f"Accuracy Parity for protected group: {accuracy_parity}\n")
+        file.write(f"Matthews Correlation Coefficient for protected group: {matthews_correlation_coefficient}\n")
         file.write(f"Confusion Matrix:\n{conf_matrix}\n\n")
 
+
 # Calculate and append average metrics to the output file
-with open("PlainAdultCorrected.txt", "a") as file:
+with open("PlainAdultMoreMetrics.txt", "a") as file:
     file.write("\nAverage Metrics:\n")
     file.write(f"Average Accuracy: {np.mean(accuracy_list)}\n")
     file.write(f"Average TPR for protected group: {np.mean(tpr_list)}\n")
     file.write(f"Average FPR for protected group: {np.mean(fpr_list)}\n")
     file.write(f"Average Equalized Odds for protected group: {np.mean(equalized_odds_list)}\n")
+    file.write(f"Average Predictive Rate Parity for protected group: {np.mean(predictive_rate_parity_list)}\n")
+    file.write(f"Average Demographic Parity for protected group: {np.mean(demographic_parity_list)}\n")
+    file.write(f"Average Accuracy Parity for protected group: {np.mean(accuracy_parity_list)}\n")
+    file.write(f"Average Matthews Correlation Coefficient for protected group: {np.mean(matthews_correlation_coefficient_list)}\n")
+    
