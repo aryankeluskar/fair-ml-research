@@ -1,0 +1,12 @@
+In Run 1: Mean Squared Error (MSE): 44.999833851289615
+In Run 1: Accuracy: 48.03480%
+
+Average Mean Squared Error (MSE): 44.999833851289615
+Average Accuracy: 48.03480%
+
+In Run 1: Mean Squared Error (MSE): 44.999833851289615
+In Run 1: Accuracy: 48.03480%
+
+Average Mean Squared Error (MSE): 44.999833851289615
+Average Accuracy: 48.03480%
+

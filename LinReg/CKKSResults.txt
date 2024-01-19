@@ -1,0 +1,140 @@
+Feature: CRIM
+Accuracy: 15.078046904877008
+MSE: 71.69073588204996
+Slope: -0.41519008804134566
+Intercept: 24.033096503332366
+x_min: 0.00632
+x_max: 88.9762
+y_min: 5.0
+y_max: 50.0
+
+Feature: ZN
+Accuracy: 12.992084484298871
+MSE: 73.45169609908643
+Slope: 0.14213955562961889
+Intercept: 20.917649111441296
+x_min: 0.0
+x_max: 100.0
+y_min: 5.0
+y_max: 50.0
+
+Feature: INDUS
+Accuracy: 23.399003038973355
+MSE: 64.6662216456966
+Slope: -0.6484842527744215
+Intercept: 29.754887052009963
+x_min: 0.46
+x_max: 27.74
+y_min: 5.0
+y_max: 50.0
+
+Feature: CHAS
+Accuracy: 3.0716122108765176
+MSE: 81.82651476090506
+Slope: 6.349029322200725
+Intercept: 22.093976535773642
+x_min: 0
+x_max: 1
+y_min: 5.0
+y_max: 50.0
+
+Feature: NOX
+Accuracy: 18.260302704302067
+MSE: 69.00428966042148
+Slope: -33.90622088937666
+Intercept: 41.34051437680675
+x_min: 0.385
+x_max: 0.871
+y_min: 5.0
+y_max: 50.0
+
+Feature: RM
+Accuracy: 48.352545480273236
+MSE: 43.60055187151082
+Slope: 9.102558088281313
+Intercept: -34.67341216970512
+x_min: 3.561
+x_max: 8.78
+y_min: 5.0
+y_max: 50.0
+
+Feature: AGE
+Accuracy: 14.209474406499522
+MSE: 72.42398093007475
+Slope: -0.12316165856305264
+Intercept: 30.978618615131545
+x_min: 2.9
+x_max: 100.0
+y_min: 5.0
+y_max: 50.0
+
+Feature: DIS
+Accuracy: 6.2464371958888325
+MSE: 79.1463415998226
+Slope: 1.091666015779716
+Intercept: 18.38985084669818
+x_min: 1.1296
+x_max: 12.1265
+y_min: 5.0
+y_max: 50.0
+
+Feature: RAD
+Accuracy: 14.563857986676709
+MSE: 72.12481188459884
+Slope: -0.4030886956385588
+Intercept: 26.382085581419304
+x_min: 1
+x_max: 24
+y_min: 5.0
+y_max: 50.0
+
+Feature: TAX
+Accuracy: -405761.94534899684
+MSE: 342626.85287040257
+Slope: 3.45061743708973
+Intercept: -1386.1373722928477
+x_min: 187.0
+x_max: 711.0
+y_min: 5.0
+y_max: 50.0
+
+Feature: PTRATIO
+Accuracy: 25.784731800113413
+MSE: 62.65220001445217
+Slope: -2.157186966342022
+Intercept: 62.344836089183104
+x_min: 12.6
+x_max: 22.0
+y_min: 5.0
+y_max: 50.0
+
+Feature: B
+Accuracy: -29399.547364438695
+MSE: 24903.386953136993
+Slope: 1.7612487330901896
+Intercept: -605.6588763788612
+x_min: 0.32
+x_max: 396.9
+y_min: 5.0
+y_max: 50.0
+
+Feature: LSTAT
+Accuracy: 54.414629756362444
+MSE: 38.48296723182361
+Slope: -0.950045911893452
+Intercept: 34.55376090698197
+x_min: 1.73
+x_max: 37.97
+y_min: 5.0
+y_max: 50.0
+
+Feature: MEDV
+Accuracy: 99.99999999945346
+MSE: 4.613752231946281e-10
+Slope: 0.9999977292580136
+Intercept: 4.605881545671764e-05
+x_min: 5.0
+x_max: 50.0
+y_min: 5.0
+y_max: 50.0
+

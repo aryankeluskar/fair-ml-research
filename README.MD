@@ -3,6 +3,13 @@ Researching impact of homomorphic encryption on fairness/bias of a dataset. In t
 
 ## Linear Regression - Observations
 In the folder LinReg, there are two python files: one with CKKS Encryption and one without. After executing both the files 20 times, there is an average of 0.05% drop in accuracy while using CKKS Encryption.
+UPDATE: I have used the boston dataset (http://lib.stat.cmu.edu/datasets/boston) to make graphs and therefore test accuracy of every feature against Median value of owner-occupied homes. Results can be found in LinReg/Combined, LinReg/sklearn_ckks, LinReg/sklearn_plain. Log Files with metrics can be found in CKKSResults.txt, PlainResults.txt, and sklearnResults.txt <br>
+To replicate:
+1) use LinReg/boston.txt 
+2) execute TextToDF.py
+3) execute LinRegCKKS.py, LinRegPlain.py, LinRegSklearn.py
+4) run allGrapher.py
+
 
 ## Logarthmic Regression - Method & Observation
 ### Datasets:
